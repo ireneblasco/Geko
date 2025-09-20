@@ -7,18 +7,39 @@
 
 import SwiftUI
 
+private extension ViewMode {
+    var systemImageName: String {
+        switch self {
+        case .weekly:
+            // Weekly: smaller grid
+            return "circle.grid.2x1.right.filled"
+        case .monthly:
+            // Monthly: denser grid
+            return "calendar"
+        case .yearly:
+            // Yearly: largest grid feel
+            return "square.grid.3x3.bottomright.filled"
+        }
+    }
+    
+    var accessibilityLabel: String { rawValue }
+}
+
 struct ViewModeToggleBar: View {
     @Binding var selectedMode: ViewMode
     @Namespace private var toggleNamespace
     
     var body: some View {
-        VStack {
-            Spacer()
+        // Top-left anchored pill
+        HStack {
             toggleButtonsView
                 .padding(4)
                 .background(.regularMaterial, in: Capsule())
-                .padding(.bottom, 20)
+                .padding(.leading, 16)
+                .padding(.top, 8)
+            Spacer()
         }
+        .ignoresSafeArea(.keyboard) // keep position when keyboard appears
     }
     
     @ViewBuilder
@@ -37,8 +58,9 @@ struct ViewModeToggleBar: View {
                 selectedMode = mode
             }
         } label: {
-            Text(mode.rawValue)
-                .font(.subheadline.weight(.medium))
+            Image(systemName: mode.systemImageName)
+                .font(.system(size: 14, weight: .semibold))
+                .symbolRenderingMode(.monochrome)
                 .foregroundStyle(selectedMode == mode ? .white : .primary)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
@@ -49,6 +71,7 @@ struct ViewModeToggleBar: View {
                             .matchedGeometryEffect(id: "toggle", in: toggleNamespace)
                     }
                 }
+                .accessibilityLabel(mode.accessibilityLabel)
         }
         .buttonStyle(.plain)
     }
@@ -57,7 +80,7 @@ struct ViewModeToggleBar: View {
 #Preview {
     @Previewable @State var viewMode = ViewMode.weekly
     
-    ZStack {
+    ZStack(alignment: .topLeading) {
         Color.gray.opacity(0.3)
             .ignoresSafeArea()
         
