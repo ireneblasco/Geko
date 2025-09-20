@@ -16,16 +16,9 @@ final class Habit {
     var reminderTimes: [Date] // Times of day for reminders
     var reminderMessage: String?
     
-    // Store completed days as ISO-8601 date-only strings: "YYYY-MM-DD"
-    // For simple habits (dailyTarget = 1), this remains the same
-    // Using Array instead of Set for Core Data compatibility
-    private var _completedDays: [String]
-    
-    /// Computed property to provide Set-like interface for completed days
-    var completedDays: Set<String> {
-        get { Set(_completedDays) }
-        set { _completedDays = Array(newValue) }
-    }
+    // Persisted storage for completed days as ISO-8601 date strings "YYYY-MM-DD".
+    // Use Array for SwiftData/Core Data compatibility.
+    private var completedDaysStorage: [String]
     
     // Store completion counts per day for habits with dailyTarget > 1
     // Key: ISO-8601 date string, Value: number of completions that day
@@ -39,12 +32,18 @@ final class Habit {
         self.remindersEnabled = remindersEnabled
         self.reminderTimes = reminderTimes
         self.reminderMessage = reminderMessage
-        self._completedDays = []
+        self.completedDaysStorage = []
         self.dailyCompletionCounts = [:]
     }
 }
 
 extension Habit {
+    // Public Set-like interface
+    var completedDays: Set<String> {
+        get { Set(completedDaysStorage) }
+        set { completedDaysStorage = Array(newValue) }
+    }
+    
     static func isoDay(for date: Date = .now, in calendar: Calendar = .current) -> String {
         let comps = calendar.dateComponents([.year, .month, .day], from: date)
         let year = comps.year ?? 0
@@ -58,9 +57,9 @@ extension Habit {
     func completionCount(on date: Date = .now, calendar: Calendar = .current) -> Int {
         let key = Self.isoDay(for: date, in: calendar)
         
-        // For dailyTarget = 1, check completedDays for backward compatibility
+        // For dailyTarget = 1, check completedDays
         if dailyTarget == 1 {
-            return _completedDays.contains(key) ? 1 : 0
+            return completedDays.contains(key) ? 1 : 0
         }
         
         // For dailyTarget > 1, check dailyCompletionCounts
@@ -91,9 +90,9 @@ extension Habit {
         
         if currentCount < dailyTarget {
             if dailyTarget == 1 {
-                // For simple habits, use completedDays for backward compatibility
-                if !_completedDays.contains(key) {
-                    _completedDays.append(key)
+                // For simple habits, mark the day as completed (avoid duplicates)
+                if !completedDaysStorage.contains(key) {
+                    completedDaysStorage.append(key)
                 }
             } else {
                 // For multi-target habits, use dailyCompletionCounts
@@ -108,10 +107,10 @@ extension Habit {
         
         if dailyTarget == 1 {
             // For simple habits, toggle the old way
-            if _completedDays.contains(key) {
-                _completedDays.removeAll { $0 == key }
+            if let idx = completedDaysStorage.firstIndex(of: key) {
+                completedDaysStorage.remove(at: idx)
             } else {
-                _completedDays.append(key)
+                completedDaysStorage.append(key)
             }
         } else {
             // For multi-target habits, toggle between 0 and full completion
@@ -129,7 +128,7 @@ extension Habit {
         let key = Self.isoDay(for: date, in: calendar)
         
         if dailyTarget == 1 {
-            _completedDays.removeAll { $0 == key }
+            completedDaysStorage.removeAll { $0 == key }
         } else {
             dailyCompletionCounts.removeValue(forKey: key)
         }

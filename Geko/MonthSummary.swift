@@ -35,7 +35,7 @@ struct MonthSummary: View {
         VStack(alignment: .leading, spacing: 8) {
             // Weekday headers aligned to firstWeekday
             HStack(spacing: columnSpacing) {
-                ForEach(weekdayHeader, id: \.self) { label in
+                ForEach(Array(weekdayHeader.enumerated()), id: \.offset) { _, label in
                     Text(label)
                         .font(.caption2)
                         .foregroundStyle(.secondary)
