@@ -141,21 +141,12 @@ private struct YearDot: View {
         let completionProgress = habit.completionProgress(on: day, calendar: calendar)
         let isFullyCompleted = habit.isCompleted(on: day, calendar: calendar)
         
-        // Non-tappable dot with partial completion support
-        ZStack {
-            // Base rectangle
-            RoundedRectangle(cornerRadius: 2)
-                .fill(Color.secondary.opacity(0.1))
-                .frame(width: dotSize, height: dotSize)
-            
-            if completionProgress > 0 {
-                // Completion fill
-                RoundedRectangle(cornerRadius: 2)
-                    .fill(habit.color.color)
-                    .frame(width: dotSize, height: dotSize * completionProgress)
-                    .clipShape(RoundedRectangle(cornerRadius: 2))
-            }
-        }
+        // Non-tappable dot with opacity-based completion indication
+        RoundedRectangle(cornerRadius: 2)
+            .fill(completionProgress > 0 ? 
+                  habit.color.color.opacity(0.3 + (completionProgress * 0.7)) : 
+                  Color.secondary.opacity(0.1))
+            .frame(width: dotSize, height: dotSize)
         .overlay {
             if isToday {
                 RoundedRectangle(cornerRadius: 2)

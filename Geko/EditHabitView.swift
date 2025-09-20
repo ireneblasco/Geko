@@ -10,7 +10,7 @@ struct EditHabitView: View {
         HabitEditorForm(
             mode: .edit(
                 habit: habit,
-                onConfirm: { _, _, _ in
+                onConfirm: { _, _, _, _, _, _ in
                     // Habit is already mutated in the form before this closure.
                     // Return true to allow dismiss.
                     true
@@ -22,7 +22,10 @@ struct EditHabitView: View {
             initialName: habit.name,
             initialEmoji: habit.emoji,
             initialColor: habit.color,
-            initialDailyTarget: habit.dailyTarget
+            initialDailyTarget: habit.dailyTarget,
+            initialRemindersEnabled: habit.remindersEnabled,
+            initialReminderTimes: habit.reminderTimes,
+            initialReminderMessage: habit.reminderMessage ?? ""
         )
         .navigationBarBackButtonHidden(true)
     }

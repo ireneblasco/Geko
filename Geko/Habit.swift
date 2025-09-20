@@ -1,5 +1,6 @@
 import Foundation
 import SwiftData
+import UserNotifications
 
 @Model
 final class Habit {
@@ -10,6 +11,11 @@ final class Habit {
     // Daily target: how many times the user needs to complete this habit per day
     var dailyTarget: Int
     
+    // Reminder settings
+    var remindersEnabled: Bool
+    var reminderTimes: [Date] // Times of day for reminders
+    var reminderMessage: String?
+    
     // Store completed days as ISO-8601 date-only strings: "YYYY-MM-DD"
     // For simple habits (dailyTarget = 1), this remains the same
     var completedDays: Set<String>
@@ -18,11 +24,14 @@ final class Habit {
     // Key: ISO-8601 date string, Value: number of completions that day
     var dailyCompletionCounts: [String: Int]
     
-    init(name: String, emoji: String, color: HabitColor, dailyTarget: Int = 1) {
+    init(name: String, emoji: String, color: HabitColor, dailyTarget: Int = 1, remindersEnabled: Bool = false, reminderTimes: [Date] = [], reminderMessage: String? = nil) {
         self.name = name
         self.emoji = emoji
         self.color = color
         self.dailyTarget = max(1, dailyTarget) // Ensure at least 1
+        self.remindersEnabled = remindersEnabled
+        self.reminderTimes = reminderTimes
+        self.reminderMessage = reminderMessage
         self.completedDays = []
         self.dailyCompletionCounts = [:]
     }
@@ -114,6 +123,81 @@ extension Habit {
             completedDays.remove(key)
         } else {
             dailyCompletionCounts.removeValue(forKey: key)
+        }
+    }
+    
+    // MARK: - Reminder Management
+    
+    /// Generates unique notification identifiers for this habit
+    private func notificationIdentifiers() -> [String] {
+        return reminderTimes.enumerated().map { index, _ in
+            "\(name)-\(emoji)-reminder-\(index)"
+        }
+    }
+    
+    /// Schedules notifications for all reminder times
+    func scheduleReminders() async {
+        guard remindersEnabled && !reminderTimes.isEmpty else { return }
+        
+        // Request notification permission first
+        let center = UNUserNotificationCenter.current()
+        do {
+            let granted = try await center.requestAuthorization(options: [.alert, .sound, .badge])
+            guard granted else { return }
+        } catch {
+            print("Failed to request notification permission: \(error)")
+            return
+        }
+        
+        // Cancel existing notifications for this habit
+        await cancelReminders()
+        
+        // Schedule new notifications
+        let calendar = Calendar.current
+        for (index, reminderTime) in reminderTimes.enumerated() {
+            let content = UNMutableNotificationContent()
+            content.title = "\(emoji) \(name)"
+            content.body = reminderMessage ?? "Time to work on your habit!"
+            content.sound = .default
+            content.categoryIdentifier = "HABIT_REMINDER"
+            
+            // Extract hour and minute from the reminder time
+            let components = calendar.dateComponents([.hour, .minute], from: reminderTime)
+            
+            // Create a trigger that repeats daily at the specified time
+            let trigger = UNCalendarNotificationTrigger(
+                dateMatching: components,
+                repeats: true
+            )
+            
+            let identifier = "\(name)-\(emoji)-reminder-\(index)"
+            let request = UNNotificationRequest(
+                identifier: identifier,
+                content: content,
+                trigger: trigger
+            )
+            
+            do {
+                try await center.add(request)
+            } catch {
+                print("Failed to schedule reminder for \(name): \(error)")
+            }
+        }
+    }
+    
+    /// Cancels all scheduled notifications for this habit
+    func cancelReminders() async {
+        let center = UNUserNotificationCenter.current()
+        let identifiers = notificationIdentifiers()
+        center.removePendingNotificationRequests(withIdentifiers: identifiers)
+    }
+    
+    /// Updates reminders when habit properties change
+    func updateReminders() async {
+        if remindersEnabled {
+            await scheduleReminders()
+        } else {
+            await cancelReminders()
         }
     }
 }

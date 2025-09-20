@@ -132,42 +132,37 @@ private struct DayDot: View {
         Button {
             let wasDone = habit.isCompleted(on: day, calendar: calendar)
             
-            // Use increment instead of toggle for multi-target habits
-            if habit.dailyTarget > 1 {
-                habit.incrementCompletion(on: day, calendar: calendar)
+            if wasDone {
+                // If already completed, reset the day
+                habit.resetCompletion(on: day, calendar: calendar)
             } else {
-                habit.toggleCompleted(on: day, calendar: calendar)
-            }
-            
-            // Play sound if we just completed the habit (reached target)
-            if !wasDone && habit.isCompleted(on: day, calendar: calendar) {
-                SoundFeedback.playCheck()
+                // Use increment instead of toggle for multi-target habits
+                if habit.dailyTarget > 1 {
+                    habit.incrementCompletion(on: day, calendar: calendar)
+                } else {
+                    habit.toggleCompleted(on: day, calendar: calendar)
+                }
+                
+                // Play sound if we just completed the habit (reached target)
+                if habit.isCompleted(on: day, calendar: calendar) {
+                    SoundFeedback.playCheck()
+                }
             }
             
             try? context.save()
         } label: {
             ZStack {
-                // Base circle
+                // Base circle with opacity-based completion indication
                 Circle()
-                    .fill(Color.secondary.opacity(0.15))
+                    .fill(completionProgress > 0 ? 
+                          habit.color.color.opacity(0.3 + (completionProgress * 0.7)) : 
+                          Color.secondary.opacity(0.15))
                     .frame(width: dotSize, height: dotSize)
-                
-                if completionProgress > 0 {
-                    // Progress circle (partial or full)
-                    Circle()
-                        .fill(habit.color.color.opacity(isFullyCompleted ? 1.0 : 0.6))
-                        .frame(width: dotSize * completionProgress, height: dotSize * completionProgress)
-                }
                 
                 // Show checkmark only when fully completed
                 if isFullyCompleted {
                     Image(systemName: "checkmark")
                         .font(.system(size: checkmarkSize, weight: .bold))
-                        .foregroundStyle(.white)
-                } else if completionCount > 0 && habit.dailyTarget > 1 {
-                    // Show count for multi-target habits
-                    Text("\(completionCount)")
-                        .font(.system(size: checkmarkSize * 0.8, weight: .bold))
                         .foregroundStyle(.white)
                 }
             }
