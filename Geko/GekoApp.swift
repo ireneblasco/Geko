@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct GekoApp: App {
@@ -13,5 +14,6 @@ struct GekoApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Habit.self)
     }
 }
