@@ -16,6 +16,13 @@ struct ContentView: View {
     @State private var showingAdd = false
     @State private var habitToEdit: Habit?
     @State private var searchText = ""
+    
+    // Persist last selected view mode across launches
+    @AppStorage("lastSelectedViewMode") private var lastSelectedViewModeRaw: String = ViewMode.weekly.rawValue
+    private var persistedViewMode: ViewMode {
+        get { ViewMode(rawValue: lastSelectedViewModeRaw) ?? .weekly }
+        set { lastSelectedViewModeRaw = newValue.rawValue }
+    }
     @State private var viewMode: ViewMode = .weekly
 
     private var filteredHabits: [Habit] {
@@ -35,6 +42,16 @@ struct ContentView: View {
             if !filteredHabits.isEmpty {
                 ViewModeToggleBar(selectedMode: $viewMode)
             }
+        }
+        .onAppear {
+            // Rehydrate selection on appear (defer to avoid mutating during render pass)
+            DispatchQueue.main.async {
+                viewMode = persistedViewMode
+            }
+        }
+        .onChange(of: viewMode) { _, newValue in
+            // Persist selection when it changes (write directly to @AppStorage backing value)
+            lastSelectedViewModeRaw = newValue.rawValue
         }
     }
     
