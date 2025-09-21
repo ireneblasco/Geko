@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import AudioToolbox
+import GekoShared
 
 struct HabitRow: View {
     @Environment(\.modelContext) private var context

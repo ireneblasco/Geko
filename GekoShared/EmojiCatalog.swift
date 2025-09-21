@@ -1,15 +1,21 @@
 import Foundation
 
-struct EmojiCategory: Identifiable, Hashable {
-    let id: String
-    let name: String
-    let emojis: [String]
+public struct EmojiCategory: Identifiable, Hashable {
+    public let id: String
+    public let name: String
+    public let emojis: [String]
+    
+    public init(id: String, name: String, emojis: [String]) {
+        self.id = id
+        self.name = name
+        self.emojis = emojis
+    }
 }
 
-enum EmojiCatalog {
+public enum EmojiCatalog {
     // Curated, embedded emoji grouped by common categories.
     // You can expand these lists later as needed.
-    static let categories: [EmojiCategory] = [
+    public static let categories: [EmojiCategory] = [
         EmojiCategory(id: "smileys", name: "Smileys", emojis: [
             "😀","😁","😂","🤣","😃","😄","😅","😆","😉","😊",
             "😋","😎","😍","😘","😗","😙","😚","🙂","🤗","🤩",
@@ -81,4 +87,3 @@ enum EmojiCatalog {
         ])
     ]
 }
-

@@ -1,10 +1,10 @@
 import SwiftUI
 
-struct EmojiCatalogPicker: View {
+public struct EmojiCatalogPicker: View {
     @Environment(\.dismiss) private var dismiss
 
-    let onPick: (String) -> Void
-    let onCancel: () -> Void
+    public let onPick: (String) -> Void
+    public let onCancel: () -> Void
 
     @State private var selectedCategoryIndex: Int = 0
 
@@ -16,7 +16,12 @@ struct EmojiCatalogPicker: View {
 
     private let columns = [GridItem(.adaptive(minimum: 44), spacing: 12)]
 
-    var body: some View {
+    public init(onPick: @escaping (String) -> Void, onCancel: @escaping () -> Void) {
+        self.onPick = onPick
+        self.onCancel = onCancel
+    }
+
+    public var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
                 // Category tabs (horizontal scroll)
@@ -77,8 +82,3 @@ struct EmojiCatalogPicker: View {
         }
     }
 }
-
-#Preview {
-    EmojiCatalogPicker(onPick: { _ in }, onCancel: {})
-}
-

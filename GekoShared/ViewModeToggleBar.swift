@@ -1,10 +1,3 @@
-//
-//  ViewModeToggleBar.swift
-//  Geko
-//
-//  Created by Irenews on 9/19/25.
-//
-
 import SwiftUI
 
 private extension ViewMode {
@@ -25,11 +18,15 @@ private extension ViewMode {
     var accessibilityLabel: String { rawValue }
 }
 
-struct ViewModeToggleBar: View {
+public struct ViewModeToggleBar: View {
     @Binding var selectedMode: ViewMode
     @Namespace private var toggleNamespace
     
-    var body: some View {
+    public init(selectedMode: Binding<ViewMode>) {
+        self._selectedMode = selectedMode
+    }
+    
+    public var body: some View {
         // Top-left anchored pill
         HStack {
             toggleButtonsView
@@ -74,16 +71,5 @@ struct ViewModeToggleBar: View {
                 .accessibilityLabel(mode.accessibilityLabel)
         }
         .buttonStyle(.plain)
-    }
-}
-
-#Preview {
-    @Previewable @State var viewMode = ViewMode.weekly
-    
-    ZStack(alignment: .topLeading) {
-        Color.gray.opacity(0.3)
-            .ignoresSafeArea()
-        
-        ViewModeToggleBar(selectedMode: $viewMode)
     }
 }

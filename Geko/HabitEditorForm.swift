@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import UserNotifications
+import GekoShared
 
 struct HabitEditorForm: View {
     enum Mode {

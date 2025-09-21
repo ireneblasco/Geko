@@ -3,18 +3,18 @@ import SwiftData
 import UserNotifications
 
 @Model
-final class Habit {
-    var name: String
-    var emoji: String
-    var color: HabitColor
+public final class Habit {
+    public var name: String
+    public var emoji: String
+    public var color: HabitColor
     
     // Daily target: how many times the user needs to complete this habit per day
-    var dailyTarget: Int
+    public var dailyTarget: Int
     
     // Reminder settings
-    var remindersEnabled: Bool
-    var reminderTimes: [Date] // Times of day for reminders
-    var reminderMessage: String?
+    public var remindersEnabled: Bool
+    public var reminderTimes: [Date] // Times of day for reminders
+    public var reminderMessage: String?
     
     // Persisted storage for completed days as ISO-8601 date strings "YYYY-MM-DD".
     // Use Array for SwiftData/Core Data compatibility.
@@ -22,9 +22,9 @@ final class Habit {
     
     // Store completion counts per day for habits with dailyTarget > 1
     // Key: ISO-8601 date string, Value: number of completions that day
-    var dailyCompletionCounts: [String: Int]
+    public var dailyCompletionCounts: [String: Int]
     
-    init(name: String, emoji: String, color: HabitColor, dailyTarget: Int = 1, remindersEnabled: Bool = false, reminderTimes: [Date] = [], reminderMessage: String? = nil) {
+    public init(name: String, emoji: String, color: HabitColor, dailyTarget: Int = 1, remindersEnabled: Bool = false, reminderTimes: [Date] = [], reminderMessage: String? = nil) {
         self.name = name
         self.emoji = emoji
         self.color = color
@@ -37,7 +37,7 @@ final class Habit {
     }
 }
 
-extension Habit {
+public extension Habit {
     // Public Set-like interface
     var completedDays: Set<String> {
         get { Set(completedDaysStorage) }

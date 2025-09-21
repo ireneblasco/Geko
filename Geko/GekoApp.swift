@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import GekoShared
 
 @main
 struct GekoApp: App {

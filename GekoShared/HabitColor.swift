@@ -1,11 +1,11 @@
 import SwiftUI
 
-enum HabitColor: String, CaseIterable, Codable, Identifiable {
+public enum HabitColor: String, CaseIterable, Codable, Identifiable {
     case red, orange, yellow, green, mint, teal, cyan, blue, indigo, purple, pink, brown, gray
 
-    var id: String { rawValue }
+    public var id: String { rawValue }
 
-    var color: Color {
+    public var color: Color {
         switch self {
         case .red: return .red
         case .orange: return .orange

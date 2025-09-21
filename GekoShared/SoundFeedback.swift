@@ -4,10 +4,10 @@ import AudioToolbox
 import UIKit
 #endif
 
-enum SoundFeedback {
+public enum SoundFeedback {
     private static let systemSoundID: SystemSoundID = 1104
 
-    static func playCheck() {
+    public static func playCheck() {
         #if os(iOS)
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)

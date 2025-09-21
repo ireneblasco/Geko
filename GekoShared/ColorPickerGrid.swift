@@ -1,11 +1,15 @@
 import SwiftUI
 
-struct ColorPickerGrid: View {
+public struct ColorPickerGrid: View {
     @Binding var selection: HabitColor
 
     private let columns = [GridItem(.adaptive(minimum: 44), spacing: 12)]
 
-    var body: some View {
+    public init(selection: Binding<HabitColor>) {
+        self._selection = selection
+    }
+
+    public var body: some View {
         LazyVGrid(columns: columns, spacing: 12) {
             ForEach(HabitColor.allCases) { item in
                 Button {

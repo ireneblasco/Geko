@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import GekoShared
 
 struct YearSummary: View {
     @Environment(\.calendar) private var calendar

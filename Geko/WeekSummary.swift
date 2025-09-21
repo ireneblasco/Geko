@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import GekoShared
 
 struct WeekSummary: View {
     @Environment(\.modelContext) private var context
