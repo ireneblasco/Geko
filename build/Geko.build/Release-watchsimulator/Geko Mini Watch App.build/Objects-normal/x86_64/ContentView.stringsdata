@@ -1,0 +1,48 @@
+{
+  "source": "/Users/irenews/Developer/Geko/Geko Mini Watch App/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Today",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Habits Yet",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "Create habits on your iPhone to see them here.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 43
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mark not done",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mark done",
+        "location": {
+          "startingColumn": 77,
+          "startingLine": 101
+        }
+      }
+    ]
+  },
+  "version": 1
+}

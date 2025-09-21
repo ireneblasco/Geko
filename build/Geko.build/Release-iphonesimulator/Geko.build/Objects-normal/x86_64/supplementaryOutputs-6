@@ -1,0 +1,9 @@
+"/Users/irenews/Developer/Geko/Geko/GekoApp.swift":
+  abi-baseline-json: "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/x86_64/Geko.abi.json"
+  objc-header: "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/x86_64/Geko-Swift.h"
+  swiftmodule: "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/x86_64/Geko.swiftmodule"
+  swiftsourceinfo: "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/x86_64/Geko.swiftsourceinfo"
+  swiftdoc: "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/x86_64/Geko.swiftdoc"
+  dependencies: "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/x86_64/Geko-master.d"
+  diagnostics: "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/x86_64/Geko-master.dia"
+  const-values: "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/x86_64/Geko-master.swiftconstvalues"

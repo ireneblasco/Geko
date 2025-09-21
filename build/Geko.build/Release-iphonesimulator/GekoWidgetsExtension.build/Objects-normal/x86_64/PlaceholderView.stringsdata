@@ -1,0 +1,40 @@
+{
+  "source": "/Users/irenews/Developer/Geko/GekoWidgets/PlaceholderView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Select a Habit",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "Habit not found",
+        "location": {
+          "startingColumn": 57,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "Long press to configure",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 24
+        }
+      },
+      {
+        "comment": "",
+        "key": "Check habit name in settings",
+        "location": {
+          "startingColumn": 66,
+          "startingLine": 24
+        }
+      }
+    ]
+  },
+  "version": 1
+}

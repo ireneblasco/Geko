@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'Geko Mini Watch App' in project 'Geko'
+➜ Explicit dependency on target 'GekoShared' in project 'Geko'
+Target 'GekoShared' in project 'Geko' (no dependencies)

@@ -4,25 +4,28 @@ import UserNotifications
 
 @Model
 public final class Habit {
-    public var name: String
-    public var emoji: String
-    public var color: HabitColor
+    public var name: String = ""
+    public var emoji: String = "✅"
+    public var color: HabitColor = HabitColor.blue
     
     // Daily target: how many times the user needs to complete this habit per day
-    public var dailyTarget: Int
+    public var dailyTarget: Int = 1
     
     // Reminder settings
-    public var remindersEnabled: Bool
-    public var reminderTimes: [Date] // Times of day for reminders
+    public var remindersEnabled: Bool = false
+    public var reminderTimes: [Date] = [] // Times of day for reminders
     public var reminderMessage: String?
     
     // Persisted storage for completed days as ISO-8601 date strings "YYYY-MM-DD".
     // Use Array for SwiftData/Core Data compatibility.
-    private var completedDaysStorage: [String]
+    private var completedDaysStorage: [String] = []
     
     // Store completion counts per day for habits with dailyTarget > 1
     // Key: ISO-8601 date string, Value: number of completions that day
-    public var dailyCompletionCounts: [String: Int]
+    public var dailyCompletionCounts: [String: Int] = [:]
+    
+    // Default initializer for CloudKit
+    public init() {}
     
     public init(name: String, emoji: String, color: HabitColor, dailyTarget: Int = 1, remindersEnabled: Bool = false, reminderTimes: [Date] = [], reminderMessage: String? = nil) {
         self.name = name

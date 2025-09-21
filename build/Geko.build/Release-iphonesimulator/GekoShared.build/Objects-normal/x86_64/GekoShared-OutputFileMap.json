@@ -1,0 +1,70 @@
+{
+  "" : {
+    "const-values" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/GekoShared-master.swiftconstvalues",
+    "dependencies" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/GekoShared-master.d",
+    "diagnostics" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/GekoShared-master.dia",
+    "emit-module-dependencies" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/GekoShared-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/GekoShared-master-emit-module.dia",
+    "swift-dependencies" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/GekoShared-master.swiftdeps"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/ColorPickerGrid.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ColorPickerGrid.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ColorPickerGrid.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ColorPickerGrid.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/EmojiCatalog.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/EmojiCatalog.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/EmojiCatalog.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/EmojiCatalog.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/EmojiCatalogPicker.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/EmojiCatalogPicker.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/EmojiCatalogPicker.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/EmojiCatalogPicker.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/GekoShared.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/GekoShared-b35c003fd93e4b0d0b49345f7571d8e1.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/GekoShared-b35c003fd93e4b0d0b49345f7571d8e1.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/GekoShared-b35c003fd93e4b0d0b49345f7571d8e1.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/Habit.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/Habit.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/Habit.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/Habit.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/HabitColor.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/HabitColor.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/HabitColor.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/HabitColor.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/ScrollableYearHabitGrid.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ScrollableYearHabitGrid.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ScrollableYearHabitGrid.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ScrollableYearHabitGrid.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/SoundFeedback.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/SoundFeedback.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/SoundFeedback.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/SoundFeedback.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/ViewMode.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ViewMode.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ViewMode.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ViewMode.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/ViewModeToggleBar.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ViewModeToggleBar.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ViewModeToggleBar.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/ViewModeToggleBar.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/YearDot.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/YearDot.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/YearDot.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/YearDot.o"
+  },
+  "/Users/irenews/Developer/Geko/GekoShared/YearHabitGrid.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/YearHabitGrid.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/YearHabitGrid.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoShared.build/Objects-normal/x86_64/YearHabitGrid.o"
+  }
+}

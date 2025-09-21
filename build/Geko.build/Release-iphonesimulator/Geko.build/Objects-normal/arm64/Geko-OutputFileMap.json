@@ -1,0 +1,60 @@
+{
+  "" : {
+    "const-values" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/Geko-master.swiftconstvalues",
+    "dependencies" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/Geko-master.d",
+    "diagnostics" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/Geko-master.dia",
+    "emit-module-dependencies" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/Geko-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/Geko-master-emit-module.dia",
+    "swift-dependencies" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/Geko-master.swiftdeps"
+  },
+  "/Users/irenews/Developer/Geko/Geko/AddHabitView.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/AddHabitView.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/AddHabitView.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/AddHabitView.o"
+  },
+  "/Users/irenews/Developer/Geko/Geko/ContentView.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/ContentView.o"
+  },
+  "/Users/irenews/Developer/Geko/Geko/EditHabitView.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/EditHabitView.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/EditHabitView.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/EditHabitView.o"
+  },
+  "/Users/irenews/Developer/Geko/Geko/GekoApp.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/GekoApp.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/GekoApp.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/GekoApp.o"
+  },
+  "/Users/irenews/Developer/Geko/Geko/HabitEditorForm.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/HabitEditorForm.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/HabitEditorForm.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/HabitEditorForm.o"
+  },
+  "/Users/irenews/Developer/Geko/Geko/HabitRow.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/HabitRow.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/HabitRow.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/HabitRow.o"
+  },
+  "/Users/irenews/Developer/Geko/Geko/MonthSummary.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/MonthSummary.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/MonthSummary.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/MonthSummary.o"
+  },
+  "/Users/irenews/Developer/Geko/Geko/WeekSummary.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/WeekSummary.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/WeekSummary.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/WeekSummary.o"
+  },
+  "/Users/irenews/Developer/Geko/Geko/YearSummary.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/YearSummary.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/YearSummary.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/YearSummary.o"
+  },
+  "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/Geko.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}

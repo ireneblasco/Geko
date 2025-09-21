@@ -1,0 +1,9 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "f0ea71b4782e25a10f192c2732c4b225b3a9b61b1b2a3644ee32745dcec8d9bf"
+build_start_time: [1758435478, 173708000]
+build_end_time: [1758435481, 335974000]
+inputs:
+  "/Users/irenews/Developer/Geko/Geko Mini Watch App/ContentView.swift": [1758434607, 117309572]
+  "/Users/irenews/Developer/Geko/Geko Mini Watch App/Geko_MiniApp.swift": [1758434013, 282962501]
+  ? "/Users/irenews/Developer/Geko/build/Geko.build/Release-watchsimulator/Geko Mini Watch App.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : [1758435478, 166724846]

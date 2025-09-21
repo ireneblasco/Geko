@@ -1,0 +1,32 @@
+{
+  "source": "/Users/irenews/Developer/Geko/Geko/HabitRow.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Change emoji",
+        "location": {
+          "startingColumn": 37,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mark not done",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 77
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mark done",
+        "location": {
+          "startingColumn": 81,
+          "startingLine": 77
+        }
+      }
+    ]
+  },
+  "version": 1
+}

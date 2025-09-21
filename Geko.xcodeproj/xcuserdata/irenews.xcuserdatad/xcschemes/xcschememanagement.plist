@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Geko Mini Watch App.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Geko.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,7 +17,7 @@
 		<key>GekoShared.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>GekoWidgetsExtension.xcscheme_^#shared#^_</key>
 		<dict>
@@ -37,7 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>54349E032E7F7C1C007F20B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>54349E0D2E7F7C1C007F20B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>546BE6E32E7FC54A004732F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

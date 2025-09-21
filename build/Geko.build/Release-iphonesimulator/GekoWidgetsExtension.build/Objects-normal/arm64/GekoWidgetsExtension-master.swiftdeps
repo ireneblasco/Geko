@@ -1,0 +1,17 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "9ccc11bc7f16a524ca1b5785952f7db6cda8f1a020a894206f5862f16aa16c88"
+build_start_time: [1758435091, 442807000]
+build_end_time: [1758435093, 857841000]
+inputs:
+  "/Users/irenews/Developer/Geko/GekoWidgets/AppIntent.swift": [1758426607, 63398172]
+  "/Users/irenews/Developer/Geko/GekoWidgets/GekoWidgets.swift": [1758432531, 794774212]
+  "/Users/irenews/Developer/Geko/GekoWidgets/GekoWidgetsBundle.swift": [1758432531, 795034847]
+  "/Users/irenews/Developer/Geko/GekoWidgets/GekoWidgetsControl.swift": [1758420858, 463367879]
+  "/Users/irenews/Developer/Geko/GekoWidgets/GekoWidgetsLiveActivity.swift": [1758426681, 338473534]
+  "/Users/irenews/Developer/Geko/GekoWidgets/HabitWidgetView.swift": [1758432531, 795283938]
+  "/Users/irenews/Developer/Geko/GekoWidgets/MediumHabitWidgetView.swift": [1758420858, 464266421]
+  "/Users/irenews/Developer/Geko/GekoWidgets/PlaceholderView.swift": [1758420858, 464418588]
+  "/Users/irenews/Developer/Geko/GekoWidgets/SmallHabitWidgetView.swift": [1758420858, 464539922]
+  "/Users/irenews/Developer/Geko/GekoWidgets/WidgetProvider.swift": [1758432531, 795569577]
+  ? "/Users/irenews/Developer/Geko/build/Geko.build/Release-iphonesimulator/GekoWidgetsExtension.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : [1758435062, 369032685]

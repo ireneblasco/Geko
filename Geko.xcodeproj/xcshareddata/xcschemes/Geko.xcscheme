@@ -15,6 +15,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "54349E032E7F7C1C007F20B1"
+               BuildableName = "GekoShared.framework"
+               BlueprintName = "GekoShared"
+               ReferencedContainer = "container:Geko.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "54292F572E7E505D00F25100"
                BuildableName = "Geko.app"
                BlueprintName = "Geko"

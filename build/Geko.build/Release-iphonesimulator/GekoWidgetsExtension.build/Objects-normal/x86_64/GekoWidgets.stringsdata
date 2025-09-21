@@ -1,0 +1,24 @@
+{
+  "source": "/Users/irenews/Developer/Geko/GekoWidgets/GekoWidgets.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Habit Tracker",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 33
+        }
+      },
+      {
+        "comment": "",
+        "key": "Track your daily habits with a year view.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 34
+        }
+      }
+    ]
+  },
+  "version": 1
+}

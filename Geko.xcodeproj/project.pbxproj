@@ -10,9 +10,12 @@
 		54349E0F2E7F7C1C007F20B1 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		54349E192E7F7C1C007F20B1 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		54349E1A2E7F7C1C007F20B1 /* GekoShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		546BE6EE2E7FC54B004732F5 /* Geko Mini Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 546BE6E42E7FC54A004732F5 /* Geko Mini Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		546BE6F52E7FC5EF004732F5 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		54F65C232E7F8653001A17F7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C222E7F8653001A17F7 /* WidgetKit.framework */; };
 		54F65C252E7F8653001A17F7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C242E7F8653001A17F7 /* SwiftUI.framework */; };
 		54F65C362E7F8654001A17F7 /* GekoWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54F65C202E7F8653001A17F7 /* GekoWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		54F65C812E7F8AB4001A17F7 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,13 @@
 			remoteGlobalIDString = 54349E032E7F7C1C007F20B1;
 			remoteInfo = GekoShared;
 		};
+		546BE6F32E7FC5EA004732F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54292F502E7E505D00F25100 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54349E032E7F7C1C007F20B1;
+			remoteInfo = GekoShared;
+		};
 		54F65C342E7F8654001A17F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 54292F502E7E505D00F25100 /* Project object */;
@@ -79,6 +89,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		546BE6F22E7FC54B004732F5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				546BE6EE2E7FC54B004732F5 /* Geko Mini Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		54F65C372E7F8654001A17F7 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,6 +119,7 @@
 		54292F6F2E7E505E00F25100 /* GekoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GekoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54349E042E7F7C1C007F20B1 /* GekoShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GekoShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54349E0E2E7F7C1C007F20B1 /* GekoSharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GekoSharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		546BE6E42E7FC54A004732F5 /* Geko Mini Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geko Mini Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F65C202E7F8653001A17F7 /* GekoWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GekoWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F65C222E7F8653001A17F7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		54F65C242E7F8653001A17F7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -133,6 +155,11 @@
 		54349E052E7F7C1C007F20B1 /* GekoShared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GekoShared;
+			sourceTree = "<group>";
+		};
+		546BE6E52E7FC54A004732F5 /* Geko Mini Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Geko Mini Watch App";
 			sourceTree = "<group>";
 		};
 		54F65C262E7F8653001A17F7 /* GekoWidgets */ = {
@@ -183,12 +210,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		546BE6E12E7FC54A004732F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				546BE6F52E7FC5EF004732F5 /* GekoShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		54F65C1D2E7F8653001A17F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				54F65C252E7F8653001A17F7 /* SwiftUI.framework in Frameworks */,
 				54F65C232E7F8653001A17F7 /* WidgetKit.framework in Frameworks */,
+				54F65C812E7F8AB4001A17F7 /* GekoShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +240,7 @@
 				54292F722E7E505E00F25100 /* GekoUITests */,
 				54349E052E7F7C1C007F20B1 /* GekoShared */,
 				54F65C262E7F8653001A17F7 /* GekoWidgets */,
+				546BE6E52E7FC54A004732F5 /* Geko Mini Watch App */,
 				54F65C212E7F8653001A17F7 /* Frameworks */,
 				54292F592E7E505D00F25100 /* Products */,
 			);
@@ -218,6 +255,7 @@
 				54349E042E7F7C1C007F20B1 /* GekoShared.framework */,
 				54349E0E2E7F7C1C007F20B1 /* GekoSharedTests.xctest */,
 				54F65C202E7F8653001A17F7 /* GekoWidgetsExtension.appex */,
+				546BE6E42E7FC54A004732F5 /* Geko Mini Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,6 +291,7 @@
 				54292F562E7E505D00F25100 /* Resources */,
 				54349E1B2E7F7C1C007F20B1 /* Embed Frameworks */,
 				54F65C372E7F8654001A17F7 /* Embed Foundation Extensions */,
+				546BE6F22E7FC54B004732F5 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -360,6 +399,29 @@
 			productReference = 54349E0E2E7F7C1C007F20B1 /* GekoSharedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		546BE6E32E7FC54A004732F5 /* Geko Mini Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 546BE6EF2E7FC54B004732F5 /* Build configuration list for PBXNativeTarget "Geko Mini Watch App" */;
+			buildPhases = (
+				546BE6E02E7FC54A004732F5 /* Sources */,
+				546BE6E12E7FC54A004732F5 /* Frameworks */,
+				546BE6E22E7FC54A004732F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				546BE6F42E7FC5EA004732F5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				546BE6E52E7FC54A004732F5 /* Geko Mini Watch App */,
+			);
+			name = "Geko Mini Watch App";
+			packageProductDependencies = (
+			);
+			productName = "Geko Mini Watch App";
+			productReference = 546BE6E42E7FC54A004732F5 /* Geko Mini Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		54F65C1F2E7F8653001A17F7 /* GekoWidgetsExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54F65C3B2E7F8654001A17F7 /* Build configuration list for PBXNativeTarget "GekoWidgetsExtension" */;
@@ -390,7 +452,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					54292F572E7E505D00F25100 = {
@@ -410,6 +472,9 @@
 					54349E0D2E7F7C1C007F20B1 = {
 						CreatedOnToolsVersion = 26.0;
 						TestTargetID = 54292F572E7E505D00F25100;
+					};
+					546BE6E32E7FC54A004732F5 = {
+						CreatedOnToolsVersion = 26.0;
 					};
 					54F65C1F2E7F8653001A17F7 = {
 						CreatedOnToolsVersion = 16.4;
@@ -436,6 +501,7 @@
 				54349E032E7F7C1C007F20B1 /* GekoShared */,
 				54349E0D2E7F7C1C007F20B1 /* GekoSharedTests */,
 				54F65C1F2E7F8653001A17F7 /* GekoWidgetsExtension */,
+				546BE6E32E7FC54A004732F5 /* Geko Mini Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -470,6 +536,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		54349E0C2E7F7C1C007F20B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		546BE6E22E7FC54A004732F5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -521,6 +594,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		546BE6E02E7FC54A004732F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		54F65C1C2E7F8653001A17F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -555,6 +635,11 @@
 			isa = PBXTargetDependency;
 			target = 54349E032E7F7C1C007F20B1 /* GekoShared */;
 			targetProxy = 54349E172E7F7C1C007F20B1 /* PBXContainerItemProxy */;
+		};
+		546BE6F42E7FC5EA004732F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54349E032E7F7C1C007F20B1 /* GekoShared */;
+			targetProxy = 546BE6F32E7FC5EA004732F5 /* PBXContainerItemProxy */;
 		};
 		54F65C352E7F8654001A17F7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -701,6 +786,7 @@
 				DEVELOPMENT_TEAM = 8U59Y7S3S4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -735,6 +821,7 @@
 				DEVELOPMENT_TEAM = 8U59Y7S3S4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -964,6 +1051,74 @@
 			};
 			name = Release;
 		};
+		546BE6F02E7FC54B004732F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Geko Mini Watch App/Geko Mini Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U59Y7S3S4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Geko Mini";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.littlepangolin.Geko;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.littlepangolin.Geko.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		546BE6F12E7FC54B004732F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Geko Mini Watch App/Geko Mini Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U59Y7S3S4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Geko Mini";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.littlepangolin.Geko;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.littlepangolin.Geko.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
 		54F65C382E7F8654001A17F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -987,6 +1142,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.littlepangolin.Geko.GekoWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1016,6 +1173,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.littlepangolin.Geko.GekoWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1075,6 +1234,15 @@
 			buildConfigurations = (
 				54349E1E2E7F7C1C007F20B1 /* Debug */,
 				54349E1F2E7F7C1C007F20B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		546BE6EF2E7FC54B004732F5 /* Build configuration list for PBXNativeTarget "Geko Mini Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				546BE6F02E7FC54B004732F5 /* Debug */,
+				546BE6F12E7FC54B004732F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
