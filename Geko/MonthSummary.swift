@@ -127,7 +127,8 @@ private struct DayDot: View {
     var body: some View {
         let isToday = calendar.isDateInToday(day)
         let completionCount = habit.completionCount(on: day, calendar: calendar)
-        let completionProgress = habit.completionProgress(on: day, calendar: calendar)
+        let completionProgressDouble = habit.completionProgress(on: day, calendar: calendar)
+        let completionProgress = CGFloat(completionProgressDouble)
         let isFullyCompleted = habit.isCompleted(on: day, calendar: calendar)
         
         Button {
@@ -155,8 +156,8 @@ private struct DayDot: View {
             ZStack {
                 // Base circle with opacity-based completion indication
                 Circle()
-                    .fill(completionProgress > 0 ? 
-                          habit.color.color.opacity(0.3 + (completionProgress * 0.7)) : 
+                    .fill(completionProgress > 0 ?
+                          habit.color.color.opacity(0.3 + (completionProgress * 0.7)) :
                           Color.secondary.opacity(0.15))
                     .frame(width: dotSize, height: dotSize)
                 
@@ -199,3 +200,4 @@ private struct DayDot: View {
         }
     }
 }
+

@@ -10,6 +10,9 @@
 		54349E0F2E7F7C1C007F20B1 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		54349E192E7F7C1C007F20B1 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		54349E1A2E7F7C1C007F20B1 /* GekoShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		54F65C232E7F8653001A17F7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C222E7F8653001A17F7 /* WidgetKit.framework */; };
+		54F65C252E7F8653001A17F7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C242E7F8653001A17F7 /* SwiftUI.framework */; };
+		54F65C362E7F8654001A17F7 /* GekoWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54F65C202E7F8653001A17F7 /* GekoWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,20 @@
 			remoteGlobalIDString = 54349E032E7F7C1C007F20B1;
 			remoteInfo = GekoShared;
 		};
+		54F65C342E7F8654001A17F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54292F502E7E505D00F25100 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54F65C1F2E7F8653001A17F7;
+			remoteInfo = GekoWidgetsExtension;
+		};
+		54F65C7F2E7F8AB3001A17F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54292F502E7E505D00F25100 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54349E032E7F7C1C007F20B1;
+			remoteInfo = GekoShared;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +79,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		54F65C372E7F8654001A17F7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				54F65C362E7F8654001A17F7 /* GekoWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +98,21 @@
 		54292F6F2E7E505E00F25100 /* GekoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GekoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54349E042E7F7C1C007F20B1 /* GekoShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GekoShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54349E0E2E7F7C1C007F20B1 /* GekoSharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GekoSharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		54F65C202E7F8653001A17F7 /* GekoWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GekoWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		54F65C222E7F8653001A17F7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		54F65C242E7F8653001A17F7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		54F65C3E2E7F8A07001A17F7 /* GekoWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GekoWidgetsExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		54C7B3952E7F8D7700F0653F /* Exceptions for "GekoWidgets" folder in "GekoWidgetsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 54F65C1F2E7F8653001A17F7 /* GekoWidgetsExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		54292F5A2E7E505D00F25100 /* Geko */ = {
@@ -91,6 +133,14 @@
 		54349E052E7F7C1C007F20B1 /* GekoShared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GekoShared;
+			sourceTree = "<group>";
+		};
+		54F65C262E7F8653001A17F7 /* GekoWidgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				54C7B3952E7F8D7700F0653F /* Exceptions for "GekoWidgets" folder in "GekoWidgetsExtension" target */,
+			);
+			path = GekoWidgets;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -133,16 +183,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		54F65C1D2E7F8653001A17F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54F65C252E7F8653001A17F7 /* SwiftUI.framework in Frameworks */,
+				54F65C232E7F8653001A17F7 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		54292F4F2E7E505D00F25100 = {
 			isa = PBXGroup;
 			children = (
+				54F65C3E2E7F8A07001A17F7 /* GekoWidgetsExtension.entitlements */,
 				54292F5A2E7E505D00F25100 /* Geko */,
 				54292F682E7E505E00F25100 /* GekoTests */,
 				54292F722E7E505E00F25100 /* GekoUITests */,
 				54349E052E7F7C1C007F20B1 /* GekoShared */,
+				54F65C262E7F8653001A17F7 /* GekoWidgets */,
+				54F65C212E7F8653001A17F7 /* Frameworks */,
 				54292F592E7E505D00F25100 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -155,8 +217,18 @@
 				54292F6F2E7E505E00F25100 /* GekoUITests.xctest */,
 				54349E042E7F7C1C007F20B1 /* GekoShared.framework */,
 				54349E0E2E7F7C1C007F20B1 /* GekoSharedTests.xctest */,
+				54F65C202E7F8653001A17F7 /* GekoWidgetsExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		54F65C212E7F8653001A17F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54F65C222E7F8653001A17F7 /* WidgetKit.framework */,
+				54F65C242E7F8653001A17F7 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,11 +252,13 @@
 				54292F552E7E505D00F25100 /* Frameworks */,
 				54292F562E7E505D00F25100 /* Resources */,
 				54349E1B2E7F7C1C007F20B1 /* Embed Frameworks */,
+				54F65C372E7F8654001A17F7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				54349E182E7F7C1C007F20B1 /* PBXTargetDependency */,
+				54F65C352E7F8654001A17F7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				54292F5A2E7E505D00F25100 /* Geko */,
@@ -286,6 +360,29 @@
 			productReference = 54349E0E2E7F7C1C007F20B1 /* GekoSharedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		54F65C1F2E7F8653001A17F7 /* GekoWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54F65C3B2E7F8654001A17F7 /* Build configuration list for PBXNativeTarget "GekoWidgetsExtension" */;
+			buildPhases = (
+				54F65C1C2E7F8653001A17F7 /* Sources */,
+				54F65C1D2E7F8653001A17F7 /* Frameworks */,
+				54F65C1E2E7F8653001A17F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54F65C802E7F8AB3001A17F7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				54F65C262E7F8653001A17F7 /* GekoWidgets */,
+			);
+			name = GekoWidgetsExtension;
+			packageProductDependencies = (
+			);
+			productName = GekoWidgetsExtension;
+			productReference = 54F65C202E7F8653001A17F7 /* GekoWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -293,7 +390,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
+				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					54292F572E7E505D00F25100 = {
@@ -313,6 +410,9 @@
 					54349E0D2E7F7C1C007F20B1 = {
 						CreatedOnToolsVersion = 26.0;
 						TestTargetID = 54292F572E7E505D00F25100;
+					};
+					54F65C1F2E7F8653001A17F7 = {
+						CreatedOnToolsVersion = 16.4;
 					};
 				};
 			};
@@ -335,6 +435,7 @@
 				54292F6E2E7E505E00F25100 /* GekoUITests */,
 				54349E032E7F7C1C007F20B1 /* GekoShared */,
 				54349E0D2E7F7C1C007F20B1 /* GekoSharedTests */,
+				54F65C1F2E7F8653001A17F7 /* GekoWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -369,6 +470,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		54349E0C2E7F7C1C007F20B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54F65C1E2E7F8653001A17F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,6 +521,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		54F65C1C2E7F8653001A17F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -440,6 +555,16 @@
 			isa = PBXTargetDependency;
 			target = 54349E032E7F7C1C007F20B1 /* GekoShared */;
 			targetProxy = 54349E172E7F7C1C007F20B1 /* PBXContainerItemProxy */;
+		};
+		54F65C352E7F8654001A17F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54F65C1F2E7F8653001A17F7 /* GekoWidgetsExtension */;
+			targetProxy = 54F65C342E7F8654001A17F7 /* PBXContainerItemProxy */;
+		};
+		54F65C802E7F8AB3001A17F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54349E032E7F7C1C007F20B1 /* GekoShared */;
+			targetProxy = 54F65C7F2E7F8AB3001A17F7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -570,6 +695,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Geko/Geko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8U59Y7S3S4;
@@ -603,6 +729,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Geko/Geko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8U59Y7S3S4;
@@ -833,6 +960,64 @@
 			};
 			name = Release;
 		};
+		54F65C382E7F8654001A17F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = GekoWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U59Y7S3S4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GekoWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GekoWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.littlepangolin.Geko.GekoWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		54F65C392E7F8654001A17F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = GekoWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U59Y7S3S4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GekoWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GekoWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.littlepangolin.Geko.GekoWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -886,6 +1071,15 @@
 			buildConfigurations = (
 				54349E1E2E7F7C1C007F20B1 /* Debug */,
 				54349E1F2E7F7C1C007F20B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54F65C3B2E7F8654001A17F7 /* Build configuration list for PBXNativeTarget "GekoWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54F65C382E7F8654001A17F7 /* Debug */,
+				54F65C392E7F8654001A17F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

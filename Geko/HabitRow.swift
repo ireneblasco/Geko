@@ -62,11 +62,11 @@ struct HabitRow: View {
                         
                         // Progress ring fill
                         Circle()
-                            .trim(from: 0, to: habit.completionProgress())
+                            .trim(from: 0, to: CGFloat(habit.completionProgress()))
                             .stroke(habit.color.color, style: StrokeStyle(lineWidth: 3, lineCap: .round))
                             .frame(width: 28, height: 28)
                             .rotationEffect(.degrees(-90)) // Start from top
-                            .animation(.easeInOut(duration: 0.3), value: habit.completionProgress())
+                            .animation(.easeInOut(duration: 0.3), value: CGFloat(habit.completionProgress()))
                         
                         // Center icon
                         Image(systemName: habit.isCompleted() ? "checkmark.circle.fill" : "circle")
@@ -105,3 +105,4 @@ struct HabitRow: View {
         habit.isCompleted() ? "Done today" : "Not done today"
     }
 }
+

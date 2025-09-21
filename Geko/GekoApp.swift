@@ -15,6 +15,6 @@ struct GekoApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Habit.self)
+        .modelContainer(SharedDataContainer.shared.modelContainer)
     }
 }

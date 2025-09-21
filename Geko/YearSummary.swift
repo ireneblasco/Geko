@@ -12,7 +12,7 @@ struct YearSummary: View {
     }
     
     var body: some View {
-        YearHabitGrid(
+        ScrollableYearHabitGrid(
             habit: habit,
             referenceDate: referenceDate,
             weekCount: 53, // Keep the original 53 weeks for full year view
