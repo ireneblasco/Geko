@@ -1,7 +1,0 @@
-Target dependency graph (3 targets)
-Target 'Geko' in project 'Geko'
-➜ Explicit dependency on target 'GekoShared' in project 'Geko'
-➜ Explicit dependency on target 'GekoWidgetsExtension' in project 'Geko'
-Target 'GekoWidgetsExtension' in project 'Geko'
-➜ Explicit dependency on target 'GekoShared' in project 'Geko'
-Target 'GekoShared' in project 'Geko' (no dependencies)
