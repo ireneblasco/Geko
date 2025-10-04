@@ -1,6 +1,6 @@
 //
-//  Geko_MiniApp.swift
-//  Geko Mini Watch App
+//  GekoWatch.swift
+//  GekoWatch
 //
 //  Created by Irenews on 9/20/25.
 //
@@ -10,7 +10,7 @@ import SwiftData
 import GekoShared
 
 @main
-struct Geko_Mini_Watch_AppApp: App {
+struct GekoWatch: App {
     // Use the shared SwiftData container so the watch and widgets share data with the main app
     private let sharedContainer = SharedDataContainer.shared.modelContainer
 
