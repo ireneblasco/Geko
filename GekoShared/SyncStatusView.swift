@@ -117,9 +117,11 @@ public struct SyncStatusView: View {
     
     private var syncStatusTitle: String {
         switch syncManager.syncStatus {
-        case .cloudKitAvailable:
+        case .hybridSync:
+            return "Optimal Hybrid Sync"
+        case .cloudKitOnly:
             return "iCloud Sync Active"
-        case .watchConnectivityAvailable:
+        case .watchOnly:
             return "Watch Connectivity Active"
         case .localOnly:
             return "Local Sync Only"
@@ -130,9 +132,11 @@ public struct SyncStatusView: View {
     
     private var syncStatusIconName: String {
         switch syncManager.syncStatus {
-        case .cloudKitAvailable:
+        case .hybridSync:
+            return "bolt.circle.fill"
+        case .cloudKitOnly:
             return "icloud.and.arrow.up.fill"
-        case .watchConnectivityAvailable:
+        case .watchOnly:
             return "applewatch.and.arrow.forward"
         case .localOnly:
             return "internaldrive"
@@ -143,9 +147,11 @@ public struct SyncStatusView: View {
     
     private var syncStatusColor: Color {
         switch syncManager.syncStatus {
-        case .cloudKitAvailable:
+        case .hybridSync:
+            return .purple
+        case .cloudKitOnly:
             return .green
-        case .watchConnectivityAvailable:
+        case .watchOnly:
             return .blue
         case .localOnly:
             return .yellow
@@ -155,11 +161,19 @@ public struct SyncStatusView: View {
     }
     
     private func iconForCapability(_ capability: String) -> String {
-        if capability.contains("✅") {
+        if capability.contains("⚡") {
+            return "bolt.circle.fill"
+        } else if capability.contains("🚀") {
+            return "rocket.fill"
+        } else if capability.contains("☁️") {
+            return "icloud.fill"
+        } else if capability.contains("🔄") {
+            return "arrow.clockwise.circle.fill"
+        } else if capability.contains("✅") {
             return "checkmark.circle.fill"
         } else if capability.contains("⌚") {
             return "applewatch"
-        } else if capability.contains("📱") {
+        } else if capability.contains("📱") || capability.contains("💾") {
             return "iphone"
         } else if capability.contains("⚠️") {
             return "exclamationmark.triangle"
@@ -176,13 +190,19 @@ public struct SyncStatusView: View {
                 .font(.headline)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("• **iCloud Sync**: Best option - syncs across all your devices automatically")
-                Text("• **Watch Connectivity**: Real-time sync when iPhone and Watch are both active")
+                Text("• **Hybrid Sync**: Optimal - instant Watch updates + iCloud persistence")
+                Text("• **iCloud Only**: Cross-device sync via iCloud (Watch not reachable)")
+                Text("• **Watch Only**: Real-time sync when both devices are active")
                 Text("• **App Groups**: Local sync between iPhone and Watch (always works)")
                 Text("• **Local Only**: Data is saved but won't sync to other devices")
             }
             .font(.caption)
             .foregroundColor(.secondary)
+            
+            Text("**Hybrid Sync Strategy**: When both iCloud and Watch are available, changes sync immediately to your Watch for responsiveness, while iCloud ensures consistency across all devices and serves as the source of truth.")
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .padding(.top, 4)
             
             Text("To enable iCloud sync, sign into iCloud in Settings and ensure iCloud is enabled for this app.")
                 .font(.caption)

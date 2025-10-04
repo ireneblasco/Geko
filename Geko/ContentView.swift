@@ -154,9 +154,20 @@ struct ContentView: View {
 
     private func delete(habitsToDelete: [Habit]) {
         for habit in habitsToDelete {
+            print("📱 Deleting habit: '\(habit.name)'")
+            
+            // Sync deletion via Watch Connectivity before deleting locally
+            SyncManager.shared.syncHabitDeletion(habitName: habit.name, habitId: habit.persistentModelID.hashValue)
+            
             context.delete(habit)
         }
-        try? context.save()
+        
+        do {
+            try context.save()
+            print("📱 Successfully deleted \(habitsToDelete.count) habit(s)")
+        } catch {
+            print("📱 Failed to delete habits: \(error)")
+        }
     }
 }
 

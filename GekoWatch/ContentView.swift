@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import GekoShared
+import WatchKit
 
 struct ContentView: View {
     @Environment(\.modelContext) private var context
@@ -21,13 +22,53 @@ struct ContentView: View {
                 } else {
                     List {
                         ForEach(habits) { habit in
-                            HabitRowCompact(habit: habit)
+                            NavigationLink(destination: HabitDetailView(habit: habit)) {
+                                HabitRowCompact(habit: habit)
+                            }
+                            .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                                Button(role: .destructive) {
+                                    deleteHabit(habit)
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                         }
+                        .onDelete(perform: deleteHabits)
                     }
                     .listStyle(.plain)
                 }
             }
             .navigationTitle("Today")
+        }
+    }
+    
+    private func deleteHabits(at offsets: IndexSet) {
+        let habitsToDelete = offsets.map { habits[$0] }
+        deleteHabits(habitsToDelete)
+    }
+    
+    private func deleteHabit(_ habit: Habit) {
+        deleteHabits([habit])
+    }
+    
+    private func deleteHabits(_ habitsToDelete: [Habit]) {
+        for habit in habitsToDelete {
+            print("⌚ Deleting habit: '\(habit.name)'")
+            
+            // Sync deletion via Watch Connectivity (send deletion message)
+            let syncManager = SyncManager.shared
+            syncManager.syncHabitDeletion(habitName: habit.name, habitId: habit.persistentModelID.hashValue)
+            
+            // Delete from local context
+            context.delete(habit)
+        }
+        
+        // Save the changes
+        do {
+            try context.save()
+            print("⌚ Successfully deleted \(habitsToDelete.count) habit(s)")
+        } catch {
+            print("⌚ Failed to delete habits: \(error)")
         }
     }
 }
@@ -126,10 +167,8 @@ private struct HabitRowCompact: View {
                 Text(habit.name)
                     .font(.headline)
                     .lineLimit(1)
-                Text(subtitle)
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
+                
+                WeekTrackStrip(habit: habit)
             }
 
             Spacer(minLength: 6)
@@ -164,18 +203,6 @@ private struct HabitRowCompact: View {
         .padding(.vertical, 2)
     }
 
-    private var subtitle: String {
-        let count = habit.completionCount()
-        let target = habit.dailyTarget
-        if count == 0 {
-            return "Not done today"
-        } else if count >= target {
-            return "Complete (\(count)/\(target))"
-        } else {
-            return "Progress (\(count)/\(target))"
-        }
-    }
-
     private func toggleProgress() {
         if habit.isCompleted() {
             habit.resetCompletion()
@@ -193,6 +220,75 @@ private struct HabitRowCompact: View {
             completionCount: habit.completionCount()
         )
         print("⌚ Synced habit completion for '\(habit.name)': \(habit.completionCount())/\(habit.dailyTarget)")
+    }
+}
+
+// MARK: - Week Track Strip
+
+private struct WeekTrackStrip: View {
+    enum DayStatus {
+        case none, partial, full
+    }
+    
+    @Environment(\.calendar) private var calendar
+    var habit: Habit
+    
+    private var weekDays: [Date] {
+        let today = Date()
+        if let interval = calendar.dateInterval(of: .weekOfYear, for: today) {
+            return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0, to: interval.start) }
+        } else {
+            // Fallback: last 7 days ending today
+            return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0 - 6, to: today) }
+        }
+    }
+    
+    private func status(for date: Date) -> DayStatus {
+        if habit.isCompleted(on: date, calendar: calendar) {
+            return .full
+        } else if habit.isPartiallyCompleted(on: date, calendar: calendar) {
+            return .partial
+        } else {
+            return .none
+        }
+    }
+    
+    var body: some View {
+        let color = habit.color.color
+        HStack(spacing: 4) {
+            ForEach(weekDays, id: \.self) { day in
+                let st = status(for: day)
+                ZStack {
+                    Circle()
+                        .stroke(color.opacity(0.25), lineWidth: 1)
+                        .fill(color.opacity(habit.completionProgress(on: day)))
+                }
+                .frame(width: 7, height: 7)
+                .accessibilityLabel(accessibilityLabel(for: day, status: st))
+            }
+        }
+        .padding(.top, 1)
+        .accessibilityElement(children: .combine)
+    }
+    
+    private func accessibilityLabel(for date: Date, status: DayStatus) -> String {
+        let formatter = DateFormatter()
+        formatter.calendar = calendar
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        
+        let dateString = formatter.string(from: date)
+        let statusString: String
+        switch status {
+        case .none: statusString = "Not done"
+        case .partial:
+            let count = habit.completionCount(on: date, calendar: calendar)
+            statusString = "Progress \(count)/\(habit.dailyTarget)"
+        case .full:
+            let count = habit.completionCount(on: date, calendar: calendar)
+            statusString = "Complete \(count)/\(habit.dailyTarget)"
+        }
+        return "\(dateString): \(statusString)"
     }
 }
 

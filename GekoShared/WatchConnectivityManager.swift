@@ -71,6 +71,20 @@ public class WatchConnectivityManager: NSObject, ObservableObject {
         }
     }
     
+    public func syncHabitDeletion(habitName: String, habitId: Int) {
+        guard WCSession.default.isReachable else { return }
+        
+        let deletionData: [String: Any] = [
+            "action": "habitDeletion",
+            "habitName": habitName,
+            "habitId": habitId
+        ]
+        
+        WCSession.default.sendMessage(deletionData, replyHandler: nil) { error in
+            print("Failed to send habit deletion: \(error.localizedDescription)")
+        }
+    }
+    
     public func requestFullSync() {
         guard WCSession.default.isReachable else { return }
         
@@ -172,6 +186,37 @@ public class WatchConnectivityManager: NSObject, ObservableObject {
         }
     }
     
+    private func handleHabitDeletion(_ message: [String: Any]) {
+        guard let modelContext = self.modelContext,
+              let habitName = message["habitName"] as? String else {
+            print("Invalid habit deletion message format")
+            return
+        }
+        
+        DispatchQueue.main.async {
+            let descriptor = FetchDescriptor<Habit>(
+                predicate: #Predicate<Habit> { habit in
+                    habit.name == habitName
+                }
+            )
+            
+            do {
+                let habits = try modelContext.fetch(descriptor)
+                for habit in habits {
+                    print("Deleting habit '\(habit.name)' via Watch Connectivity sync")
+                    modelContext.delete(habit)
+                }
+                
+                if !habits.isEmpty {
+                    try modelContext.save()
+                    print("Successfully synced habit deletion via Watch Connectivity")
+                }
+            } catch {
+                print("Failed to sync habit deletion: \(error)")
+            }
+        }
+    }
+    
     private func sendAllHabits() {
         guard let modelContext = self.modelContext else { return }
         
@@ -220,6 +265,12 @@ extension WatchConnectivityManager: WCSessionDelegate {
     public func sessionReachabilityDidChange(_ session: WCSession) {
         DispatchQueue.main.async {
             self.isReachable = session.isReachable
+            
+            // Notify SyncManager that connectivity status changed
+            NotificationCenter.default.post(
+                name: NSNotification.Name("WatchConnectivityStatusChanged"),
+                object: nil
+            )
         }
     }
     
@@ -231,6 +282,8 @@ extension WatchConnectivityManager: WCSessionDelegate {
             handleHabitUpdate(message)
         case "habitCompletion":
             handleHabitCompletion(message)
+        case "habitDeletion":
+            handleHabitDeletion(message)
         case "requestFullSync":
             sendAllHabits()
         default:

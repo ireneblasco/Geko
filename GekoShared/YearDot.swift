@@ -52,13 +52,21 @@ public struct YearDot: View {
             }
             
             try? context.save()
+            
+            // Sync habit completion via Watch Connectivity
+            SyncManager.shared.syncHabitCompletion(
+                habitName: habit.name,
+                date: day,
+                isCompleted: habit.isCompleted(on: day, calendar: calendar),
+                completionCount: habit.completionCount(on: day, calendar: calendar)
+            )
         } label: {
             ZStack {
                 // Slightly smaller fill to create visual spacing
                 RoundedRectangle(cornerRadius: 2)
                     .fill(completionProgress > 0 ?
                           habit.color.color.opacity(0.3 + (completionProgress * 0.7)) :
-                          Color.secondary.opacity(0.1))
+                          Color.secondary.opacity(0.3))
                     .frame(width: innerSize, height: innerSize)
             }
             .frame(width: dotSize, height: dotSize) // Preserve layout cell size
