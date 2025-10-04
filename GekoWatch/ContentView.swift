@@ -78,7 +78,14 @@ private struct EmptyStateView: View {
         // Light haptic to acknowledge tap
         WKInterfaceDevice.current().play(.click)
 
-        // Perform a tiny fetch against the shared container to “tickle” the store.
+        // Request full sync via Watch Connectivity or other available methods
+        let syncManager = SyncManager.shared
+        syncManager.setModelContext(context)
+        syncManager.updateSyncStatus()
+        syncManager.requestFullSync()
+        print("⌚ Watch app manual refresh - sync status: \(syncManager.syncStatusDescription)")
+
+        // Perform a tiny fetch against the shared container to "tickle" the store.
         // This encourages processing of any pending imports and re-evaluates queries.
         do {
             let shared = SharedDataContainer.shared.modelContainer
@@ -92,11 +99,11 @@ private struct EmptyStateView: View {
             try? context.save()
         } catch {
             // Swallow errors; we only need to nudge the store
-            // You could log if desired.
+            print("⌚ Watch refresh fetch error: \(error)")
         }
 
         // Small delay to allow UI to re-evaluate @Query
-        try? await Task.sleep(nanoseconds: 200_000_000)
+        try? await Task.sleep(nanoseconds: 500_000_000) // Slightly longer for sync
         isRefreshing = false
     }
 }
@@ -176,6 +183,16 @@ private struct HabitRowCompact: View {
             habit.incrementCompletion()
         }
         try? context.save()
+        
+        // Sync habit completion via Watch Connectivity
+        let syncManager = SyncManager.shared
+        syncManager.syncHabitCompletion(
+            habitName: habit.name,
+            date: Date(),
+            isCompleted: habit.isCompleted(),
+            completionCount: habit.completionCount()
+        )
+        print("⌚ Synced habit completion for '\(habit.name)': \(habit.completionCount())/\(habit.dailyTarget)")
     }
 }
 

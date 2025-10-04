@@ -268,6 +268,9 @@ struct HabitEditorForm: View {
                 try context.save()
                 print("HabitEditorForm: Successfully saved changes to habit '\(habit.name)'")
                 
+                // Sync the updated habit via Watch Connectivity
+                SyncManager.shared.syncHabitUpdate(habit)
+                
                 // Update reminders asynchronously
                 Task {
                     await habit.updateReminders()

@@ -32,6 +32,9 @@ struct AddHabitView: View {
                         try context.save()
                         print("AddHabitView: Successfully saved habit '\(habit.name)'")
                         
+                        // Sync the new habit via Watch Connectivity
+                        SyncManager.shared.syncHabitUpdate(habit)
+                        
                         // Schedule reminders if enabled
                         if remindersEnabled {
                             Task {

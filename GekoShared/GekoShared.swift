@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import CloudKit
 
 // MARK: - GekoShared Module
 // This module exports reusable business logic and UI components for habit tracking.
@@ -24,16 +25,37 @@ public class SharedDataContainer {
     
     public lazy var modelContainer: ModelContainer = {
         let schema = Schema([Habit.self])
-        let modelConfiguration = ModelConfiguration(
-            schema: schema,
-            url: sharedStoreURL,
-            cloudKitDatabase: .automatic
-        )
+        
+        // Try CloudKit configuration first, fallback to local-only if it fails
+        let modelConfiguration: ModelConfiguration
         
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            // First attempt: CloudKit enabled
+            modelConfiguration = ModelConfiguration(
+                schema: schema,
+                url: sharedStoreURL,
+                cloudKitDatabase: .automatic
+            )
+            let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            print("✅ Successfully initialized ModelContainer with CloudKit")
+            return container
         } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+            print("⚠️ CloudKit initialization failed: \(error)")
+            print("📱 Falling back to local-only storage")
+            
+            // Fallback: Local-only configuration
+            do {
+                let localConfiguration = ModelConfiguration(
+                    schema: schema,
+                    url: sharedStoreURL,
+                    cloudKitDatabase: .none
+                )
+                let container = try ModelContainer(for: schema, configurations: [localConfiguration])
+                print("✅ Successfully initialized ModelContainer in local-only mode")
+                return container
+            } catch {
+                fatalError("Could not create ModelContainer even in local-only mode: \(error)")
+            }
         }
     }()
     

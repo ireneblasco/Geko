@@ -53,6 +53,14 @@ struct HabitRow: View {
                     }
                     
                     try? context.save()
+                    
+                    // Sync habit completion via Watch Connectivity
+                    SyncManager.shared.syncHabitCompletion(
+                        habitName: habit.name,
+                        date: Date(),
+                        isCompleted: habit.isCompleted(),
+                        completionCount: habit.completionCount()
+                    )
                 } label: {
                     ZStack {
                         // Progress ring background
@@ -93,6 +101,10 @@ struct HabitRow: View {
             EmojiCatalogPicker { picked in
                 habit.emoji = String(picked.prefix(1))
                 try? context.save()
+                
+                // Sync emoji change via Watch Connectivity
+                SyncManager.shared.syncHabitUpdate(habit)
+                
                 isPickingEmoji = false
             } onCancel: {
                 isPickingEmoji = false
