@@ -10,7 +10,8 @@ struct WeekSummary: View {
     @Environment(\.locale) private var locale
 
     private var weekDays: [Date] {
-        WeekSummary.weekDates(for: Date(), calendar: calendar)
+        // Show a 7-day window that ends at today, so today is right-most.
+        WeekSummary.sevenDaysEndingToday(for: Date(), calendar: calendar)
     }
     
     private var weekCompletedCount: Int {
@@ -124,6 +125,17 @@ struct WeekSummary: View {
             return (0..<7).compactMap { cal.date(byAdding: .day, value: $0, to: startOfDay) }
         }
         return (0..<7).compactMap { cal.date(byAdding: .day, value: $0, to: startOfWeek) }
+    }
+
+    // New: a rolling 7-day window that ends at 'reference' (today)
+    static func sevenDaysEndingToday(for reference: Date, calendar: Calendar) -> [Date] {
+        var cal = calendar
+        cal.locale = calendar.locale
+        let end = cal.startOfDay(for: reference)
+        guard let start = cal.date(byAdding: .day, value: -6, to: end) else {
+            return [end]
+        }
+        return (0..<7).compactMap { cal.date(byAdding: .day, value: $0, to: start) }
     }
 
     static func shortWeekdaySymbol(for date: Date, calendar: Calendar, locale: Locale) -> String {
