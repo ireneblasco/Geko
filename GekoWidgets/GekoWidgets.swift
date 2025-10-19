@@ -25,6 +25,14 @@ struct GekoWidgetsEntryView: View {
 
 struct GekoWidgets: Widget {
     let kind: String = "GekoWidgets"
+    
+    static let supportedFamilies: [WidgetFamily] = {
+        #if os(watchOS)
+        [.accessoryCircular, .accessoryRectangular, .accessoryCorner]
+        #else
+        [.systemSmall, .systemMedium]
+        #endif
+    }()
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
@@ -32,7 +40,7 @@ struct GekoWidgets: Widget {
         }
         .configurationDisplayName("Habit Tracker")
         .description("Track your daily habits with a year view.")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies(Self.supportedFamilies)
     }
 }
 
@@ -42,10 +50,4 @@ extension ConfigurationAppIntent {
         intent.selectedHabit = HabitEntity(id: "Water", name: "Drink Water", emoji: "💧")
         return intent
     }
-}
-
-#Preview(as: .systemMedium) {
-    GekoWidgets()
-} timeline: {
-    SimpleEntry(date: .now, configuration: .sample, habit: nil)
 }

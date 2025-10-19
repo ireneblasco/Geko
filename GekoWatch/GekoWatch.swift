@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import GekoShared
+import WidgetKit
 
 @main
 struct GekoWatch: App {
@@ -30,6 +31,8 @@ struct GekoWatch: App {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         syncManager.requestFullSync()
                         print("⌚ Watch app triggered full sync on launch")
+                        WidgetCenter.shared.reloadAllTimelines()
+                        print("⌚ Requested WidgetKit timeline reload from watch app")
                     }
                 }
         }

@@ -11,8 +11,27 @@ import SwiftData
 import GekoShared
 
 struct Provider: AppIntentTimelineProvider {
+    func recommendations() -> [AppIntentRecommendation<ConfigurationAppIntent>] {
+        // Provide a few common habit presets as recommended configurations,
+        // suitable for quick-add on watchOS. Keep descriptions unformatted.
+        let presets: [HabitEntity] = [
+            HabitEntity(id: "Water", name: "Drink Water", emoji: "💧"),
+            HabitEntity(id: "Exercise", name: "Exercise", emoji: "💪"),
+            HabitEntity(id: "Reading", name: "Reading", emoji: "📚"),
+            HabitEntity(id: "Meditation", name: "Meditation", emoji: "🧘")
+        ]
+        
+        let recs = presets.map { habit in
+            var intent = ConfigurationAppIntent()
+            intent.selectedHabit = habit
+            // Use plain, unformatted description (no emojis or formatting)
+            return AppIntentRecommendation(intent: intent, description: habit.name)
+        }
+        return recs
+    }
+    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), habit: nil)
+        return SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), habit: nil)
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
@@ -28,17 +47,18 @@ struct Provider: AppIntentTimelineProvider {
         
         // Update every hour to keep the widget fresh
         for hourOffset in 0..<24 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+            guard let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate) else { continue }
             let entry = SimpleEntry(date: entryDate, configuration: configuration, habit: habit)
             entries.append(entry)
         }
-
         return Timeline(entries: entries, policy: .atEnd)
     }
     
     @MainActor
     private func loadHabit(named habitName: String) async -> Habit? {
-        guard !habitName.isEmpty else { return nil }
+        guard !habitName.isEmpty else {
+            return nil
+        }
         
         do {
             let container = SharedDataContainer.shared.modelContainer
@@ -50,9 +70,9 @@ struct Provider: AppIntentTimelineProvider {
             let fetchDescriptor = FetchDescriptor<Habit>(predicate: predicate)
             
             let habits = try context.fetch(fetchDescriptor)
-            return habits.first
+            let result = habits.first
+            return result
         } catch {
-            print("Failed to load habit from shared container: \(error)")
             return nil
         }
     }

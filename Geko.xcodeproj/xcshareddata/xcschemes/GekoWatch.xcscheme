@@ -29,6 +29,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "54F65C1F2E7F8653001A17F7"
+               BuildableName = "GekoWidgets.appex"
+               BlueprintName = "GekoWidgets"
+               ReferencedContainer = "container:Geko.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "546BE6E32E7FC54A004732F5"
                BuildableName = "GekoWatch.app"
                BlueprintName = "GekoWatch"

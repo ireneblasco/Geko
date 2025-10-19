@@ -12,12 +12,13 @@ import GekoShared
 
 // Entity representing a habit for selection
 struct HabitEntity: AppEntity {
-    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Habit"
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = TypeDisplayRepresentation(name: "Habit")
     static var defaultQuery = HabitQuery()
     
     var id: String
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(title: "\(emoji) \(name)")
+        // Most SDKs accept String directly thanks to ExpressibleByStringInterpolation
+        DisplayRepresentation(title: "\(name)", subtitle: "\(emoji)")
     }
     
     var name: String

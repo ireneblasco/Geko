@@ -6,6 +6,11 @@
 	<dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
+		<key>NSExtensionAttributes</key>
+		<dict>
+			<key>WKAppBundleIdentifier</key>
+			<string>com.littlepangolin.Geko.watchkitapp</string>
+		</dict>
 	</dict>
 </dict>
 </plist>
