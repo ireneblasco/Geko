@@ -22,20 +22,6 @@
                ReferencedContainer = "container:Geko.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "54292F572E7E505D00F25100"
-               BuildableName = "Geko.app"
-               BlueprintName = "Geko"
-               ReferencedContainer = "container:Geko.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -68,15 +54,6 @@
             ReferencedContainer = "container:Geko.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "54292F572E7E505D00F25100"
-            BuildableName = "Geko.app"
-            BlueprintName = "Geko"
-            ReferencedContainer = "container:Geko.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCWidgetKind"
@@ -108,16 +85,15 @@
       debugDocumentVersioning = "YES"
       askForAppToLaunch = "Yes"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "54292F572E7E505D00F25100"
-            BuildableName = "Geko.app"
-            BlueprintName = "Geko"
+            BlueprintIdentifier = "54F65C1F2E7F8653001A17F7"
+            BuildableName = "GekoWidgets.appex"
+            BlueprintName = "GekoWidgets"
             ReferencedContainer = "container:Geko.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
