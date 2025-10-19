@@ -13,6 +13,5 @@ struct GekoWidgetsBundle: WidgetBundle {
     var body: some Widget {
         GekoWidgets()
         GekoWidgetsControl()
-        GekoWidgetsLiveActivity()
     }
 }
