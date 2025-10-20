@@ -17,23 +17,13 @@ struct SmallHabitWidgetView: View {
             // Small widget layout - emoji with completion circle is the button
             HStack(spacing: 0) {
                 Button(intent: ToggleHabitIntent(habitName: habit.name)) {
-                    ZStack {
-                        // Progress ring background
-                        Circle()
-                            .stroke(habit.color.color.opacity(0.2), lineWidth: 2.5)
-                            .frame(width: 32, height: 32)
-                        
-                        // Progress ring fill
-                        Circle()
-                            .trim(from: 0, to: habit.completionProgress())
-                            .stroke(habit.color.color, style: StrokeStyle(lineWidth: 2.5, lineCap: .round))
-                            .frame(width: 32, height: 32)
-                            .rotationEffect(.degrees(-90))
-                        
-                        // Emoji in center
-                        Text(habit.emoji)
-                            .font(.system(size: 18))
-                    }
+                    HabitRing(
+                        progress: habit.completionProgress(),
+                        color: habit.color.color,
+                        emoji: habit.emoji,
+                        size: 32,
+                        lineWidth: 2.5
+                    )
                 }
                 .buttonStyle(.plain)
                 
@@ -74,3 +64,4 @@ struct SmallHabitWidgetView: View {
         }
     }
 }
+

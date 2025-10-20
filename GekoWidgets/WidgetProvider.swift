@@ -11,23 +11,32 @@ import SwiftData
 import GekoShared
 
 struct Provider: AppIntentTimelineProvider {
-    func recommendations() -> [AppIntentRecommendation<ConfigurationAppIntent>] {
-        // Provide a few common habit presets as recommended configurations,
-        // suitable for quick-add on watchOS. Keep descriptions unformatted.
-        let presets: [HabitEntity] = [
-            HabitEntity(id: "Water", name: "Drink Water", emoji: "💧"),
-            HabitEntity(id: "Exercise", name: "Exercise", emoji: "💪"),
-            HabitEntity(id: "Reading", name: "Reading", emoji: "📚"),
-            HabitEntity(id: "Meditation", name: "Meditation", emoji: "🧘")
-        ]
+    @MainActor func recommendations() -> [AppIntentRecommendation<ConfigurationAppIntent>] {
+        // Try real habits from the shared store on this device (watch)
+        let container = SharedDataContainer.shared.modelContainer
+        let context = container.mainContext
+        let habits = (try? context.fetch(FetchDescriptor<Habit>())) ?? []
         
-        let recs = presets.map { habit in
+        let entities: [HabitEntity]
+        if habits.isEmpty {
+            // Fallback if nothing stored yet
+            entities = [
+                HabitEntity(id: "Water", name: "Drink Water", emoji: "💧"),
+                HabitEntity(id: "Exercise", name: "Exercise", emoji: "💪"),
+                HabitEntity(id: "Reading", name: "Reading", emoji: "📚"),
+                HabitEntity(id: "Meditation", name: "Meditation", emoji: "🧘")
+            ]
+        } else {
+            entities = habits.prefix(8).map {
+                HabitEntity(id: $0.name, name: $0.name, emoji: $0.emoji)
+            }
+        }
+        
+        return entities.map { habit in
             var intent = ConfigurationAppIntent()
             intent.selectedHabit = habit
-            // Use plain, unformatted description (no emojis or formatting)
             return AppIntentRecommendation(intent: intent, description: habit.name)
         }
-        return recs
     }
     
     func placeholder(in context: Context) -> SimpleEntry {

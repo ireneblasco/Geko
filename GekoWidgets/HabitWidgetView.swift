@@ -20,36 +20,14 @@ struct HabitWidgetView: View {
         case .systemMedium:
             MediumHabitWidgetView(habit: habit)
         case .accessoryCircular:
-            Gauge(value: 1) {
-                Text(habit.name)
-            } currentValueLabel: {
-                Text(habit.emoji)
-            }
-            .gaugeStyle(.accessoryCircular)
+            AccessoryCircularHabitView(habit: habit)
         case .accessoryRectangular:
-            HStack(alignment: .center, spacing: 6) {
-                Text(habit.emoji)
-                    .font(.system(size: 18))
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(habit.name)
-                        .font(.system(.caption2))
-                        .lineLimit(1)
-                    // Simplified progress text for rectangular accessory
-                    Text("Today")
-                        .font(.system(.caption2))
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            AccessoryRectangularHabitView(habit: habit)
         case .accessoryCorner:
-            ZStack {
-                // Corner widgets are small; keep it concise
-                Text(habit.emoji)
-                    .font(.system(size: 14))
-            }
+            AccessoryCircularHabitView(habit: habit)
         default:
             Text(habit.emoji)
         }
     }
 }
+
