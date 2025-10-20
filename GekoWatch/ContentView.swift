@@ -233,14 +233,19 @@ private struct WeekTrackStrip: View {
     @Environment(\.calendar) private var calendar
     var habit: Habit
     
-    private var weekDays: [Date] {
-        let today = Date()
-        if let interval = calendar.dateInterval(of: .weekOfYear, for: today) {
-            return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0, to: interval.start) }
-        } else {
-            // Fallback: last 7 days ending today
-            return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0 - 6, to: today) }
+    // Local helper: rolling 7-day window ending today (today on the far right)
+    private func sevenDaysEndingToday(for reference: Date, calendar: Calendar) -> [Date] {
+        var cal = calendar
+        cal.locale = calendar.locale
+        let end = cal.startOfDay(for: reference)
+        guard let start = cal.date(byAdding: .day, value: -6, to: end) else {
+            return [end]
         }
+        return (0..<7).compactMap { cal.date(byAdding: .day, value: $0, to: start) }
+    }
+    
+    private var weekDays: [Date] {
+        sevenDaysEndingToday(for: Date(), calendar: calendar)
     }
     
     private func status(for date: Date) -> DayStatus {
