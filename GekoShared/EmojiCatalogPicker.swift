@@ -1,5 +1,7 @@
 import SwiftUI
 
+#if os(iOS)
+
 public struct EmojiCatalogPicker: View {
     @Environment(\.dismiss) private var dismiss
 
@@ -267,3 +269,5 @@ public struct EmojiCatalogPicker: View {
         }
     }
 }
+
+#endif

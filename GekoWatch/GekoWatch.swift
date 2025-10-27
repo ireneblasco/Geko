@@ -9,12 +9,16 @@ import SwiftUI
 import SwiftData
 import GekoShared
 import WidgetKit
+import OSLog
 
 @main
 struct GekoWatch: App {
     // Use the shared SwiftData container so the watch and widgets share data with the main app
     private let sharedContainer = SharedDataContainer.shared.modelContainer
     private let watchConnectivity = WatchConnectivityManager.shared
+    
+    // Static logger for this file/app using shared subsystem
+    private static let logger = Logger(subsystem: kGekoLogSubsystem, category: "GekoWatch")
 
     var body: some Scene {
         WindowGroup {
@@ -25,14 +29,14 @@ struct GekoWatch: App {
                     let syncManager = SyncManager.shared
                     syncManager.setModelContext(modelContext)
                     syncManager.updateSyncStatus()
-                    print("⌚ Watch app initialized with sync status: \(syncManager.syncStatusDescription)")
+                    Self.logger.info("⌚ Watch app initialized with sync status: \(syncManager.syncStatusDescription, privacy: .public)")
                     
                     // Trigger a full sync on app open
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         syncManager.requestFullSync()
-                        print("⌚ Watch app triggered full sync on launch")
+                        Self.logger.info("⌚ Watch app triggered full sync on launch")
                         WidgetCenter.shared.reloadAllTimelines()
-                        print("⌚ Requested WidgetKit timeline reload from watch app")
+                        Self.logger.info("⌚ Requested WidgetKit timeline reload from watch app")
                     }
                 }
         }
