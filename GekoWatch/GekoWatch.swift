@@ -13,17 +13,25 @@ import OSLog
 
 @main
 struct GekoWatch: App {
-    // Use the shared SwiftData container so the watch and widgets share data with the main app
-    private let sharedContainer = SharedDataContainer.shared.modelContainer
-    private let watchConnectivity = WatchConnectivityManager.shared
-    
     // Static logger for this file/app using shared subsystem
     private static let logger = Logger(subsystem: kGekoLogSubsystem, category: "GekoWatch")
+    
+    // Use the shared SwiftData container so the watch and widgets share data with the main app
+    private let sharedContainer: ModelContainer
+    
+    init() {
+        Self.logger.info("⌚ Watch app: Initializing GekoWatch")
+        // Initialize container with logging
+        self.sharedContainer = SharedDataContainer.shared.modelContainer
+        Self.logger.info("⌚ Watch app: SharedDataContainer initialized")
+    }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .onAppear {
+                    Self.logger.info("⌚ Watch app: ContentView appeared")
+                    
                     // Set up syncing with the model context
                     let modelContext = ModelContext(sharedContainer)
                     let syncManager = SyncManager.shared

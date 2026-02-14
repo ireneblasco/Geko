@@ -61,10 +61,16 @@ public class SharedDataContainer {
     
     private var sharedStoreURL: URL {
         let appGroupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Self.appGroupIdentifier)
-        guard let url = appGroupURL else {
-            fatalError("Could not get shared container URL for App Group: \(Self.appGroupIdentifier)")
+        if let url = appGroupURL {
+            print("✅ App Group container found at: \(url.path)")
+            return url.appendingPathComponent("Geko.sqlite")
+        } else {
+            print("⚠️ Could not access App Group: \(Self.appGroupIdentifier)")
+            print("⚠️ Falling back to default container")
+            // Fallback to app's documents directory
+            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            return documentsURL.appendingPathComponent("Geko.sqlite")
         }
-        return url.appendingPathComponent("Geko.sqlite")
     }
 }
 
