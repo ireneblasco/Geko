@@ -65,7 +65,7 @@ struct ContentView: View {
                         addHabitButton
                     }
                 }
-                .searchable(text: $searchText)
+                .modifier(SearchableIfModifier(show: habits.count > 3, text: $searchText))
                 .sheet(isPresented: $showingAdd) {
                     AddHabitView()
                         .presentationDetents([.medium, .large])
@@ -167,6 +167,20 @@ struct ContentView: View {
             print("📱 Successfully deleted \(habitsToDelete.count) habit(s)")
         } catch {
             print("📱 Failed to delete habits: \(error)")
+        }
+    }
+}
+
+// MARK: - Conditional Searchable
+private struct SearchableIfModifier: ViewModifier {
+    let show: Bool
+    @Binding var text: String
+
+    func body(content: Content) -> some View {
+        if show {
+            content.searchable(text: $text)
+        } else {
+            content
         }
     }
 }
