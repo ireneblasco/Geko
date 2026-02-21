@@ -8,9 +8,20 @@ This document tracks release versions, in-scope features, and associated GitHub 
 
 ## Release v1.0 (Alias: Newt)
 
-**Platform:** iOS 17+
-**Devices:** iPhone 15 Pro Max, iPhone 16
+**Platform:** iOS 18+
+**Devices:** iPhone only
 **Milestone:** [Newt (v1.0)](https://github.com/irenews/Geko/milestone/1) – First release to the App Store. Basic functionality matching competitor apps (iOS app with Widgets).
+
+### First Release Configuration
+
+| Setting | Value | Notes |
+|---------|-------|-------|
+| **Deployment target** | iOS 18.0 | Latest iOS only |
+| **Device family** | iPhone (1) | No iPad support |
+| **Orientation** | Portrait only | No landscape rotation |
+| **Watch app** | Disabled | Not embedded in app bundle; code retained for v2.0 |
+| **iCloud / CloudKit** | Enabled | Unchanged; sync works across devices |
+| **Widgets** | iOS only | GekoWidgets embedded in Geko.app |
 
 ### In Scope
 - Habits (#1) ✓
