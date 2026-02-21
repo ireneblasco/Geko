@@ -12,7 +12,6 @@
 		54349E1A2E7F7C1C007F20B1 /* GekoShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5436EFAB2E91C32F00A43D70 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		5436EFAC2E91C32F00A43D70 /* GekoShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		546BE6EE2E7FC54B004732F5 /* GekoWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 546BE6E42E7FC54A004732F5 /* GekoWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		54F65C232E7F8653001A17F7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C222E7F8653001A17F7 /* WidgetKit.framework */; };
 		54F65C252E7F8653001A17F7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C242E7F8653001A17F7 /* SwiftUI.framework */; };
 		54F65C362E7F8654001A17F7 /* GekoWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54F65C202E7F8653001A17F7 /* GekoWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -107,17 +106,6 @@
 				5436EFAC2E91C32F00A43D70 /* GekoShared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		546BE6F22E7FC54B004732F5 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				546BE6EE2E7FC54B004732F5 /* GekoWatch.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		54F65C372E7F8654001A17F7 /* Embed Foundation Extensions */ = {
@@ -340,7 +328,6 @@
 				54292F562E7E505D00F25100 /* Resources */,
 				54349E1B2E7F7C1C007F20B1 /* Embed Frameworks */,
 				54F65C372E7F8654001A17F7 /* Embed Foundation Extensions */,
-				546BE6F22E7FC54B004732F5 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
