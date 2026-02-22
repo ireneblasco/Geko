@@ -160,6 +160,22 @@ xcodebuild -scheme Geko -destination 'platform=iOS Simulator,name=iPhone 16 Pro'
 
 These tests use the launch argument `--resetFeedbackState` to clear the "already asked" flag for deterministic runs.
 
+### Screenshot Capture
+
+`ScreenshotTests` in [GekoUITests/ScreenshotTests.swift](GekoUITests/ScreenshotTests.swift) captures screenshots for App Store / marketing:
+
+- **testCaptureScreenshots** — Bootstraps sample habits, hides the debug button, captures home screen and add-habit form, saves to `tmp/screenshots/` (gitignored)
+
+Run via the shell script:
+
+```bash
+./Scripts/capture-screenshots.sh
+```
+
+Output: `tmp/screenshots/home-with-habits.png` and `tmp/screenshots/add-habit-form.png`
+
+The test uses `--isPlusForScreenshots` so the Add Habit sheet is shown (not the paywall) when 3+ habits exist.
+
 ## Troubleshooting
 
 - **"No matching device" / SimError 404:** The scheme is targeting a simulator that no longer exists. In Xcode, change the run destination (e.g. to iPhone 16) via the scheme selector next to the Run button.

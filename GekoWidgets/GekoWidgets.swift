@@ -9,6 +9,18 @@ import WidgetKit
 import SwiftUI
 import GekoShared
 
+extension View {
+    func widgetBackground(backgroundView: some View) -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return containerBackground(for: .widget) {
+                backgroundView
+            }
+        } else {
+            return background(backgroundView)
+        }
+    }
+}
+
 struct GekoWidgetsEntryView: View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family
@@ -23,6 +35,7 @@ struct GekoWidgetsEntryView: View {
                 PlaceholderView(habitName: entry.configuration.habitName)
             }
         }
+        .widgetBackground(backgroundView: Color(.systemBackground))
         .widgetURL(entry.isLocked ? URL(string: "geko://paywall") : nil)
         .accessibilityIdentifier("geko_habit_widget")
     }

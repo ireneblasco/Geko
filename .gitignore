@@ -132,6 +132,9 @@ Temporary Items
 *.tmp
 *.temp
 
+# Screenshot capture output (tmp/screenshots/)
+tmp/
+
 # Xcode Cloud
 *.xctestresult
 

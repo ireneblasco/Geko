@@ -17,6 +17,12 @@ struct GekoApp: App {
         WindowGroup {
             ContentView()
                 .onAppear {
+                    #if DEBUG
+                    if ProcessInfo.processInfo.arguments.contains("--isPlusForScreenshots") {
+                        EntitlementManager.shared.setPlus(true)
+                    }
+                    #endif
+
                     // Initialize StoreManager to observe transactions and entitlements
                     _ = StoreManager.shared
 
