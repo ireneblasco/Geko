@@ -83,6 +83,7 @@ struct HabitRow: View {
                             .symbolRenderingMode(.hierarchical)
                     }
                     .accessibilityLabel(habit.isCompleted() ? "Mark not done" : "Mark done")
+                    .accessibilityIdentifier("habit_completion")
                 }
                 .buttonStyle(.plain)
             }
@@ -99,7 +100,7 @@ struct HabitRow: View {
         .padding(.vertical, 6)
         .sheet(isPresented: $isPickingEmoji) {
             EmojiCatalogPicker { picked in
-                habit.emoji = String(picked.prefix(1))
+                habit.emoji = picked
                 try? context.save()
                 
                 // Sync emoji change via Watch Connectivity

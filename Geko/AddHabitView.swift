@@ -18,7 +18,7 @@ struct AddHabitView: View {
                     
                     let habit = Habit(
                         name: trimmed, 
-                        emoji: String(emoji.prefix(1)), 
+                        emoji: emoji, 
                         color: color, 
                         dailyTarget: dailyTarget,
                         remindersEnabled: remindersEnabled,

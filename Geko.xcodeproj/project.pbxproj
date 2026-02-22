@@ -12,6 +12,7 @@
 		5436EFAB2E91C32F00A43D70 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		5436EFAC2E91C32F00A43D70 /* GekoShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		54DC77062F4A7C9D006FFEC6 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 54F65C8B2E7F8653001A17F7 /* ViewInspector */; };
+		54E1A0012F4B0001007F20B1 /* EmojiKit in Frameworks */ = {isa = PBXBuildFile; productRef = 54E1A0022F4B0001007F20B1 /* EmojiKit */; };
 		54F65C232E7F8653001A17F7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C222E7F8653001A17F7 /* WidgetKit.framework */; };
 		54F65C252E7F8653001A17F7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C242E7F8653001A17F7 /* SwiftUI.framework */; };
 		54F65C362E7F8654001A17F7 /* GekoWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54F65C202E7F8653001A17F7 /* GekoWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -223,6 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E1A0012F4B0001007F20B1 /* EmojiKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +389,7 @@
 			);
 			name = GekoShared;
 			packageProductDependencies = (
+				54E1A0022F4B0001007F20B1 /* EmojiKit */,
 			);
 			productName = GekoShared;
 			productReference = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */;
@@ -484,6 +487,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				54F65C8A2E7F8653001A17F7 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+				54E1A0032F4B0001007F20B1 /* XCRemoteSwiftPackageReference "EmojiKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 54292F592E7E505D00F25100 /* Products */;
@@ -1207,6 +1211,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		54E1A0032F4B0001007F20B1 /* XCRemoteSwiftPackageReference "EmojiKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielsaidi/EmojiKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
 		54F65C8A2E7F8653001A17F7 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nalexn/ViewInspector";
@@ -1218,6 +1230,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		54E1A0022F4B0001007F20B1 /* EmojiKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54E1A0032F4B0001007F20B1 /* XCRemoteSwiftPackageReference "EmojiKit" */;
+			productName = EmojiKit;
+		};
 		54F65C8B2E7F8653001A17F7 /* ViewInspector */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 54F65C8A2E7F8653001A17F7 /* XCRemoteSwiftPackageReference "ViewInspector" */;

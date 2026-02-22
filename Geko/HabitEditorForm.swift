@@ -162,7 +162,7 @@ struct HabitEditorForm: View {
             }
             .sheet(isPresented: $isPickingEmoji) {
                 EmojiCatalogPicker { picked in
-                    emoji = String(picked.prefix(1))
+                    emoji = picked
                     isPickingEmoji = false
                 } onCancel: {
                     isPickingEmoji = false
@@ -256,7 +256,7 @@ struct HabitEditorForm: View {
             // Update habit properties
             let finalReminderMessage = reminderMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? nil : reminderMessage.trimmingCharacters(in: .whitespacesAndNewlines)
             habit.name = trimmed
-            habit.emoji = String(emoji.prefix(1))
+            habit.emoji = emoji
             habit.color = color
             habit.dailyTarget = dailyTarget
             habit.remindersEnabled = remindersEnabled
