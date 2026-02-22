@@ -7,13 +7,16 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 import GekoShared
 
 struct ContentView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: \Habit.name, order: .forward) private var habits: [Habit]
+    @ObservedObject private var feedbackManager = FeedbackManager.shared
 
     @State private var showingAdd = false
+    @State private var showingDebugSheet = false
     @State private var habitToEdit: Habit?
     @State private var searchText = ""
     
@@ -24,6 +27,12 @@ struct ContentView: View {
         set { lastSelectedViewModeRaw = newValue.rawValue }
     }
     @State private var viewMode: ViewMode = .weekly
+
+    #if DEBUG
+    private var buildNumber: String {
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "—"
+    }
+    #endif
 
     private var filteredHabits: [Habit] {
         guard !searchText.isEmpty else { return habits }
@@ -48,6 +57,10 @@ struct ContentView: View {
             DispatchQueue.main.async {
                 viewMode = persistedViewMode
             }
+            // Provide model context for feedback trigger counting
+            Task { @MainActor in
+                feedbackManager.setModelContext(context)
+            }
         }
         .onChange(of: viewMode) { _, newValue in
             // Persist selection when it changes (write directly to @AppStorage backing value)
@@ -62,7 +75,17 @@ struct ContentView: View {
                 .navigationTitle("Habits")
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
-                        addHabitButton
+                        HStack(spacing: 16) {
+                            #if DEBUG
+                            Button {
+                                showingDebugSheet = true
+                            } label: {
+                                Label("Debug", systemImage: "ladybug")
+                            }
+                            .accessibilityIdentifier("debug_menu_button")
+                            #endif
+                            addHabitButton
+                        }
                     }
                 }
                 .modifier(SearchableIfModifier(show: habits.count > 3, text: $searchText))
@@ -74,6 +97,22 @@ struct ContentView: View {
                     EditHabitView(habit: habit)
                         .presentationDetents([.medium, .large])
                 }
+                .sheet(isPresented: Binding(
+                    get: { feedbackManager.shouldShowFeedbackSheet },
+                    set: { if !$0 { feedbackManager.markSheetPresented() } }
+                )) {
+                    FeedbackSheetView(onDismiss: { feedbackManager.markSheetPresented() })
+                        .presentationDetents([.medium])
+                }
+                #if DEBUG
+                .confirmationDialog("Debug", isPresented: $showingDebugSheet) {
+                    Button("Build \(buildNumber)") { }
+                    Button("Show Feedback") {
+                        feedbackManager.showFeedbackSheetForDebug()
+                    }
+                    Button("Cancel", role: .cancel) { }
+                }
+                #endif
         }
     }
     
@@ -142,6 +181,7 @@ struct ContentView: View {
         } label: {
             Label("Add Habit", systemImage: "plus")
         }
+        .accessibilityIdentifier("add_habit_button")
     }
     
     private func delete(at offsets: IndexSet) {
@@ -164,6 +204,7 @@ struct ContentView: View {
         
         do {
             try context.save()
+            WidgetCenter.shared.reloadAllTimelines()
             print("📱 Successfully deleted \(habitsToDelete.count) habit(s)")
         } catch {
             print("📱 Failed to delete habits: \(error)")
