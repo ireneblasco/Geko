@@ -126,4 +126,4 @@ print(Inspector.print(view))
 
 ## Additional Resources
 
-- For full API coverage, see [reference.md](reference.md)
+- For full API coverage, see [reference/README.md](reference/README.md)
