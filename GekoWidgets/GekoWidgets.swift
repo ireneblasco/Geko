@@ -15,12 +15,15 @@ struct GekoWidgetsEntryView: View {
 
     var body: some View {
         Group {
-            if let habit = entry.habit {
+            if entry.isLocked {
+                LockedWidgetView()
+            } else if let habit = entry.habit {
                 HabitWidgetView(habit: habit, family: family)
             } else {
                 PlaceholderView(habitName: entry.configuration.habitName)
             }
         }
+        .widgetURL(entry.isLocked ? URL(string: "geko://paywall") : nil)
         .accessibilityIdentifier("geko_habit_widget")
     }
 }

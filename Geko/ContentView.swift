@@ -13,11 +13,13 @@ import GekoShared
 struct ContentView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: \Habit.name, order: .forward) private var habits: [Habit]
+    @ObservedObject private var entitlementManager = EntitlementManager.shared
     #if DEBUG
     @ObservedObject private var feedbackManager = FeedbackManager.shared
     #endif
 
     @State private var showingAdd = false
+    @State private var showingPaywall = false
     @State private var showingDebugSheet = false
     @State private var habitToEdit: Habit?
     @State private var searchText = ""
@@ -94,8 +96,23 @@ struct ContentView: View {
                 }
                 .modifier(SearchableIfModifier(show: habits.count > 3, text: $searchText))
                 .sheet(isPresented: $showingAdd) {
-                    AddHabitView()
+                    Group {
+                        if !entitlementManager.isPlus && habits.count >= 3 {
+                            PaywallView()
+                        } else {
+                            AddHabitView()
+                        }
+                    }
+                    .presentationDetents([.medium, .large])
+                }
+                .sheet(isPresented: $showingPaywall) {
+                    PaywallView()
                         .presentationDetents([.medium, .large])
+                }
+                .onOpenURL { url in
+                    if url.scheme == "geko" && url.host == "paywall" {
+                        showingPaywall = true
+                    }
                 }
                 .sheet(item: $habitToEdit) { habit in
                     EditHabitView(habit: habit)
@@ -113,6 +130,9 @@ struct ContentView: View {
                     Button("Build \(buildNumber)") { }
                     Button("Show Feedback") {
                         feedbackManager.showFeedbackSheetForDebug()
+                    }
+                    Button("Show Paywall") {
+                        showingPaywall = true
                     }
                     Button("Cancel", role: .cancel) { }
                 }

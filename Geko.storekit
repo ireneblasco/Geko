@@ -1,0 +1,94 @@
+{
+  "identifier" : "Geko",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "39.99",
+      "familyShareable" : false,
+      "internalID" : "geko_lifetime",
+      "localizations" : [
+        {
+          "description" : "Pay once. Unlimited access forever.",
+          "displayName" : "Geko Plus Lifetime",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.irenews.geko.plus.lifetime",
+      "referenceName" : "Geko Plus Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "geko_plus",
+      "localizations" : [
+        {
+          "displayName" : "Geko Plus",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "Geko Plus",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "geko_monthly",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Monthly subscription to Geko Plus",
+              "displayName" : "Geko Plus Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.irenews.geko.plus.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Geko Plus Monthly",
+          "subscriptionGroupID" : "geko_plus",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "14.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "geko_annual",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Annual subscription to Geko Plus",
+              "displayName" : "Geko Plus Annual",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.irenews.geko.plus.annual",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Geko Plus Annual",
+          "subscriptionGroupID" : "geko_plus",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

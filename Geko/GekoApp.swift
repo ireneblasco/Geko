@@ -17,6 +17,9 @@ struct GekoApp: App {
         WindowGroup {
             ContentView()
                 .onAppear {
+                    // Initialize StoreManager to observe transactions and entitlements
+                    _ = StoreManager.shared
+
                     // Set up syncing with the model context
                     let modelContext = ModelContext(SharedDataContainer.shared.modelContainer)
                     syncManager.setModelContext(modelContext)

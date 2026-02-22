@@ -69,7 +69,17 @@ struct Provider: AppIntentTimelineProvider {
         }
     }
     
+    private var isPlus: Bool {
+        UserDefaults(suiteName: SharedDataContainer.appGroupIdentifier)?
+            .bool(forKey: isPlusUserDefaultsKey) ?? false
+    }
+
     func placeholder(in context: Context) -> SimpleEntry {
+        if !isPlus {
+            var config = ConfigurationAppIntent()
+            config.selectedHabit = HabitEntity(id: "", name: "", emoji: "")
+            return SimpleEntry(date: Date(), configuration: config, habit: nil, isLocked: true)
+        }
         let habit = loadPreviewHabit() ?? SampleHabit.create()
         var config = ConfigurationAppIntent()
         config.selectedHabit = HabitEntity(id: habit.name, name: habit.name, emoji: habit.emoji)
@@ -77,18 +87,25 @@ struct Provider: AppIntentTimelineProvider {
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
+        if !isPlus {
+            return SimpleEntry(date: Date(), configuration: configuration, habit: nil, isLocked: true)
+        }
         let habit = await loadHabit(named: configuration.habitName)
         let displayHabit: Habit? = (context.isPreview || habit == nil) ? (loadPreviewHabit() ?? SampleHabit.create()) : habit
         return SimpleEntry(date: Date(), configuration: configuration, habit: displayHabit)
     }
-    
+
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
+        if !isPlus {
+            let entry = SimpleEntry(date: Date(), configuration: configuration, habit: nil, isLocked: true)
+            return Timeline(entries: [entry], policy: .atEnd)
+        }
+
         let habit = await loadHabit(named: configuration.habitName)
-        
+
         var entries: [SimpleEntry] = []
         let currentDate = Date()
-        
-        // Update every hour to keep the widget fresh
+
         for hourOffset in 0..<24 {
             guard let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate) else { continue }
             let entry = SimpleEntry(date: entryDate, configuration: configuration, habit: habit)
@@ -134,4 +151,12 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationAppIntent
     let habit: Habit?
+    let isLocked: Bool
+
+    init(date: Date, configuration: ConfigurationAppIntent, habit: Habit?, isLocked: Bool = false) {
+        self.date = date
+        self.configuration = configuration
+        self.habit = habit
+        self.isLocked = isLocked
+    }
 }
