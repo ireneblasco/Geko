@@ -21,6 +21,9 @@ struct ContentView: View {
     @State private var showingAdd = false
     @State private var showingPaywall = false
     @State private var showingDebugSheet = false
+    #if DEBUG
+    @State private var hideDebugButton = false
+    #endif
     @State private var habitToEdit: Habit?
     @State private var searchText = ""
     
@@ -83,12 +86,14 @@ struct ContentView: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         HStack(spacing: 16) {
                             #if DEBUG
-                            Button {
-                                showingDebugSheet = true
-                            } label: {
-                                Label("Debug", systemImage: "ladybug")
+                            if !hideDebugButton {
+                                Button {
+                                    showingDebugSheet = true
+                                } label: {
+                                    Label("Debug", systemImage: "ladybug")
+                                }
+                                .accessibilityIdentifier("debug_menu_button")
                             }
-                            .accessibilityIdentifier("debug_menu_button")
                             #endif
                             addHabitButton
                         }
@@ -134,8 +139,15 @@ struct ContentView: View {
                     Button("Show Paywall") {
                         showingPaywall = true
                     }
+                    Button("Toggle Geko Plus (\(entitlementManager.isPlus ? "Plus" : "Free"))") {
+                        entitlementManager.setPlus(!entitlementManager.isPlus)
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
                     Button("Bootstrap Sample Habits") {
                         bootstrapSampleHabits()
+                    }
+                    Button("Hide debug button") {
+                        hideDebugButton = true
                     }
                     Button("Cancel", role: .cancel) { }
                 }

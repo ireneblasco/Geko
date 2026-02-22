@@ -18,7 +18,9 @@ Tapping the ladybug opens a confirmation dialog (action sheet) titled "Debug" wi
 - **Build number** — Displays the app's `CFBundleVersion` (from `CURRENT_PROJECT_VERSION`)
 - **Show Feedback** — Presents the feedback sheet (enjoy prompt, review CTA, feedback form) for testing
 - **Show Paywall** — Presents the paywall sheet for testing
+- **Toggle Geko Plus** — Toggles the Plus entitlement for testing (shows current state: Free or Plus). Reloads widget timelines so widgets reflect the change immediately.
 - **Bootstrap Sample Habits** — Creates 3 sample habits for debugging and screenshots (see below)
+- **Hide debug button** — Hides the ladybug button until the app is restarted (for clean screenshots)
 - **Cancel** — Dismisses the dialog
 
 ### Bootstrap Sample Habits
@@ -32,6 +34,10 @@ Creates 3 sample habits with varied completion profiles in the last 7 days. Usef
 | Exercise (💪) | Simple daily, different pattern | 4 of 7 days completed |
 
 All three habits have at least some days checked in the last 7 days. Completion data uses deterministic patterns so screenshots are reproducible.
+
+### Hide Debug Button
+
+Hides the ladybug button from the toolbar. Use before taking screenshots so the debug UI is not visible. The button reappears when the app is restarted (state is in-memory only).
 
 ## Future Options
 
