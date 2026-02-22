@@ -39,8 +39,9 @@ private enum SampleHabit {
     }
 }
 
+@MainActor
 struct Provider: AppIntentTimelineProvider {
-    @MainActor func recommendations() -> [AppIntentRecommendation<ConfigurationAppIntent>] {
+    func recommendations() -> [AppIntentRecommendation<ConfigurationAppIntent>] {
         // Try real habits from the shared store on this device (watch)
         let container = SharedDataContainer.shared.modelContainer
         let context = container.mainContext
@@ -69,14 +70,15 @@ struct Provider: AppIntentTimelineProvider {
     }
     
     func placeholder(in context: Context) -> SimpleEntry {
+        let habit = loadPreviewHabit() ?? SampleHabit.create()
         var config = ConfigurationAppIntent()
-        config.selectedHabit = HabitEntity(id: "Water", name: "Drink Water", emoji: "💧")
-        return SimpleEntry(date: Date(), configuration: config, habit: SampleHabit.create())
+        config.selectedHabit = HabitEntity(id: habit.name, name: habit.name, emoji: habit.emoji)
+        return SimpleEntry(date: Date(), configuration: config, habit: habit)
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
         let habit = await loadHabit(named: configuration.habitName)
-        let displayHabit: Habit? = (context.isPreview || habit == nil) ? SampleHabit.create() : habit
+        let displayHabit: Habit? = (context.isPreview || habit == nil) ? (loadPreviewHabit() ?? SampleHabit.create()) : habit
         return SimpleEntry(date: Date(), configuration: configuration, habit: displayHabit)
     }
     
@@ -95,7 +97,6 @@ struct Provider: AppIntentTimelineProvider {
         return Timeline(entries: entries, policy: .atEnd)
     }
     
-    @MainActor
     private func loadHabit(named habitName: String) async -> Habit? {
         guard !habitName.isEmpty else {
             return nil
@@ -116,6 +117,16 @@ struct Provider: AppIntentTimelineProvider {
         } catch {
             return nil
         }
+    }
+
+    /// Returns the first habit with completion history for preview, or nil if none.
+    private func loadPreviewHabit() -> Habit? {
+        guard let habits = try? SharedDataContainer.shared.modelContainer.mainContext.fetch(FetchDescriptor<Habit>()) else {
+            return nil
+        }
+        return habits.first { habit in
+            !habit.completedDays.isEmpty || !habit.dailyCompletionCounts.isEmpty
+        } ?? habits.first
     }
 }
 
