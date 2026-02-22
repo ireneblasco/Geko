@@ -10,6 +10,35 @@ import SwiftUI
 import SwiftData
 import GekoShared
 
+// MARK: - Sample Habit for Widget Gallery
+
+private enum SampleHabit {
+    /// Creates a non-persisted habit with realistic completion data for widget gallery preview.
+    static func create() -> Habit {
+        let habit = Habit(name: "Drink Water", emoji: "💧", color: .blue)
+        habit.completedDays = sampleCompletedDays(weeks: 26)
+        return habit
+    }
+
+    /// Deterministic pattern: ~70% of past days marked complete for a realistic year grid.
+    private static func sampleCompletedDays(weeks: Int = 26) -> Set<String> {
+        var set = Set<String>()
+        let cal = Calendar.current
+        let today = cal.startOfDay(for: Date())
+        for weekOffset in 0..<weeks {
+            guard let weekStart = cal.date(byAdding: .weekOfYear, value: -weekOffset, to: today) else { continue }
+            for dayOffset in 0..<7 {
+                guard let date = cal.date(byAdding: .day, value: dayOffset, to: weekStart), date <= today else { continue }
+                let linearIndex = weekOffset * 7 + dayOffset
+                if linearIndex % 10 < 7 {
+                    set.insert(Habit.isoDay(for: date, in: cal))
+                }
+            }
+        }
+        return set
+    }
+}
+
 struct Provider: AppIntentTimelineProvider {
     @MainActor func recommendations() -> [AppIntentRecommendation<ConfigurationAppIntent>] {
         // Try real habits from the shared store on this device (watch)
@@ -40,12 +69,15 @@ struct Provider: AppIntentTimelineProvider {
     }
     
     func placeholder(in context: Context) -> SimpleEntry {
-        return SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), habit: nil)
+        var config = ConfigurationAppIntent()
+        config.selectedHabit = HabitEntity(id: "Water", name: "Drink Water", emoji: "💧")
+        return SimpleEntry(date: Date(), configuration: config, habit: SampleHabit.create())
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
         let habit = await loadHabit(named: configuration.habitName)
-        return SimpleEntry(date: Date(), configuration: configuration, habit: habit)
+        let displayHabit: Habit? = (context.isPreview || habit == nil) ? SampleHabit.create() : habit
+        return SimpleEntry(date: Date(), configuration: configuration, habit: displayHabit)
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
