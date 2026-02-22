@@ -27,5 +27,6 @@ struct PlaceholderView: View {
                 .multilineTextAlignment(.center)
         }
         .padding()
+        .accessibilityIdentifier("habit_widget_placeholder")
     }
 }

@@ -14,11 +14,14 @@ struct GekoWidgetsEntryView: View {
     @Environment(\.widgetFamily) var family
 
     var body: some View {
-        if let habit = entry.habit {
-            HabitWidgetView(habit: habit, family: family)
-        } else {
-            PlaceholderView(habitName: entry.configuration.habitName)
+        Group {
+            if let habit = entry.habit {
+                HabitWidgetView(habit: habit, family: family)
+            } else {
+                PlaceholderView(habitName: entry.configuration.habitName)
+            }
         }
+        .accessibilityIdentifier("geko_habit_widget")
     }
 }
 

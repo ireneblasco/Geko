@@ -49,6 +49,8 @@ struct SmallHabitWidgetView: View {
                 rowSpacing: 1
             )
         }
+        .accessibilityIdentifier("habit_widget_small")
+        .accessibilityLabel(habit.name)
     }
     
     private var completionText: String {

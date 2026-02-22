@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import WidgetKit
 import GekoShared
 
 struct AddHabitView: View {
@@ -34,6 +35,8 @@ struct AddHabitView: View {
                         
                         // Sync the new habit via Watch Connectivity
                         SyncManager.shared.syncHabitUpdate(habit)
+                        
+                        WidgetCenter.shared.reloadAllTimelines()
                         
                         // Schedule reminders if enabled
                         if remindersEnabled {

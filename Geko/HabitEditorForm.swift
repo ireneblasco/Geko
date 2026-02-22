@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import UserNotifications
+import WidgetKit
 import GekoShared
 
 struct HabitEditorForm: View {
@@ -62,6 +63,7 @@ struct HabitEditorForm: View {
                         TextField("Name", text: $name)
                             .textInputAutocapitalization(.words)
                             .autocorrectionDisabled()
+                            .accessibilityIdentifier("habit_name_field")
                     }
                     
                     if showsColorPicker {
@@ -158,6 +160,7 @@ struct HabitEditorForm: View {
                         confirm()
                     }
                     .disabled(!isValid)
+                    .accessibilityIdentifier(mode.isAdd ? "habit_editor_add" : "habit_editor_done")
                 }
             }
             .sheet(isPresented: $isPickingEmoji) {
@@ -270,6 +273,8 @@ struct HabitEditorForm: View {
                 
                 // Sync the updated habit via Watch Connectivity
                 SyncManager.shared.syncHabitUpdate(habit)
+                
+                WidgetCenter.shared.reloadAllTimelines()
                 
                 // Update reminders asynchronously
                 Task {

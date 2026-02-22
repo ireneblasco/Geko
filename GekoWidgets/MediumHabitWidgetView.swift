@@ -72,6 +72,8 @@ struct MediumHabitWidgetView: View {
                 rowSpacing: 1
             )
         }
+        .accessibilityIdentifier("habit_widget_medium")
+        .accessibilityLabel(habit.name)
     }
     
     private var completionText: String {
