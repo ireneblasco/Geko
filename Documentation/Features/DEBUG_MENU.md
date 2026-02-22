@@ -17,13 +17,28 @@ Tapping the ladybug opens a confirmation dialog (action sheet) titled "Debug" wi
 
 - **Build number** — Displays the app's `CFBundleVersion` (from `CURRENT_PROJECT_VERSION`)
 - **Show Feedback** — Presents the feedback sheet (enjoy prompt, review CTA, feedback form) for testing
+- **Show Paywall** — Presents the paywall sheet for testing
+- **Bootstrap Sample Habits** — Creates 3 sample habits for debugging and screenshots (see below)
 - **Cancel** — Dismisses the dialog
+
+### Bootstrap Sample Habits
+
+Creates 3 sample habits with varied completion profiles in the last 7 days. Useful for debugging, taking screenshots, and testing views with realistic data.
+
+| Habit | Profile | Last 7 days |
+|-------|---------|-------------|
+| Drink Water (💧) | Multi-target (8 glasses/day), high consistency | 6 of 7 days with varying counts (4–8) |
+| Journal (📓) | Simple daily, medium | 4 of 7 days completed |
+| Exercise (💪) | Simple daily, different pattern | 4 of 7 days completed |
+
+All three habits have at least some days checked in the last 7 days. Completion data uses deterministic patterns so screenshots are reproducible.
 
 ## Future Options
 
 The action sheet can be extended with additional debug actions, for example:
 
 - Reset feedback state (clear "already asked" flag for testing)
+- Clear sample habits / remove bootstrap data
 - Export data / database dump
 - Toggle feature flags
 
