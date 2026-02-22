@@ -10,21 +10,19 @@ import SwiftUI
 
 struct LockedWidgetView: View {
     var body: some View {
-        VStack(spacing: 8) {
-            Image(systemName: "lock.circle.fill")
-                .font(.system(size: 32))
+        VStack(spacing: 6) {
+            Image(systemName: "lock.fill")
+                .font(.system(size: 24))
                 .foregroundStyle(.secondary)
 
-            Text("Unlock Geko Plus")
-                .font(.headline)
-                .multilineTextAlignment(.center)
+            Text("Geko Plus")
+                .font(.subheadline)
+                .fontWeight(.medium)
 
-            Text("Tap to upgrade and add widgets")
-                .font(.caption)
+            Text("Tap to upgrade")
+                .font(.caption2)
                 .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
         }
-        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .accessibilityIdentifier("locked_widget_view")
     }
