@@ -17,11 +17,11 @@ struct PlaceholderView: View {
                 .font(.system(size: 32))
                 .foregroundStyle(.secondary)
             
-            Text(habitName.isEmpty ? "Select a Habit" : "Habit not found")
+            Text("Tap to create a habit")
                 .font(.headline)
                 .multilineTextAlignment(.center)
             
-            Text(habitName.isEmpty ? "Long press to configure" : "Check habit name in settings")
+            Text("Long press to choose a habit from the app")
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
