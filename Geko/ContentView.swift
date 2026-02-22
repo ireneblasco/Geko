@@ -134,6 +134,9 @@ struct ContentView: View {
                     Button("Show Paywall") {
                         showingPaywall = true
                     }
+                    Button("Bootstrap Sample Habits") {
+                        bootstrapSampleHabits()
+                    }
                     Button("Cancel", role: .cancel) { }
                 }
                 #endif
@@ -234,6 +237,49 @@ struct ContentView: View {
             print("📱 Failed to delete habits: \(error)")
         }
     }
+
+    #if DEBUG
+    /// Creates 3 sample habits (Drink Water, Journal, Exercise) with varied completion profiles
+    /// in the last 7 days. For debugging and screenshots.
+    private func bootstrapSampleHabits() {
+        let cal = Calendar.current
+        let weekDays = WeekSummary.sevenDaysEndingToday(for: Date(), calendar: cal)
+
+        // Drink Water — multi-target, high-consistency (6 of 7 days, varying counts)
+        let water = Habit(name: "Drink Water", emoji: "💧", color: .blue, dailyTarget: 8, remindersEnabled: false)
+        let waterCounts: [Int] = [6, 8, 5, 7, 4, 8] // indices 0..<6
+        for (idx, count) in waterCounts.enumerated() where idx < weekDays.count {
+            let key = Habit.isoDay(for: weekDays[idx], in: cal)
+            water.dailyCompletionCounts[key] = count
+        }
+        context.insert(water)
+
+        // Journal — simple daily, medium profile (4 of 7 days)
+        let journal = Habit(name: "Journal", emoji: "📓", color: .indigo, dailyTarget: 1, remindersEnabled: false)
+        for idx in [0, 2, 4, 5] where idx < weekDays.count {
+            journal.toggleCompleted(on: weekDays[idx], calendar: cal)
+        }
+        context.insert(journal)
+
+        // Exercise — simple daily, different pattern (4 of 7 days)
+        let exercise = Habit(name: "Exercise", emoji: "💪", color: .green, dailyTarget: 1, remindersEnabled: false)
+        for idx in [1, 2, 4, 6] where idx < weekDays.count {
+            exercise.toggleCompleted(on: weekDays[idx], calendar: cal)
+        }
+        context.insert(exercise)
+
+        do {
+            try context.save()
+            SyncManager.shared.syncHabitUpdate(water)
+            SyncManager.shared.syncHabitUpdate(journal)
+            SyncManager.shared.syncHabitUpdate(exercise)
+            WidgetCenter.shared.reloadAllTimelines()
+            print("📱 Bootstrapped 3 sample habits (Drink Water, Journal, Exercise)")
+        } catch {
+            print("📱 Failed to bootstrap sample habits: \(error)")
+        }
+    }
+    #endif
 }
 
 // MARK: - Conditional Searchable
