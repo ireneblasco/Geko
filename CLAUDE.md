@@ -17,6 +17,7 @@ For detailed information, refer to:
 
 - **Architecture & Sync Details** → [`Documentation/ARCHITECTURE.md`](Documentation/ARCHITECTURE.md)
 - **API Reference** → [`Documentation/API.md`](Documentation/API.md)
+- **Testing Setup** → [`Documentation/TESTING.md`](Documentation/TESTING.md)
 - **Core Data Model** → [`GekoShared/Habit.swift`](GekoShared/Habit.swift)
 - **Sync Orchestration** → [`GekoShared/SyncManager.swift`](GekoShared/SyncManager.swift)
 - **Watch Sync Implementation** → [`GekoShared/WatchConnectivityManager.swift`](GekoShared/WatchConnectivityManager.swift)

@@ -66,17 +66,6 @@
                ReferencedContainer = "container:Geko.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "54349E0D2E7F7C1C007F20B1"
-               BuildableName = "GekoSharedTests.xctest"
-               BlueprintName = "GekoSharedTests"
-               ReferencedContainer = "container:Geko.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

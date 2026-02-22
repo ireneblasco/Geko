@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54349E0F2E7F7C1C007F20B1 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		54349E192E7F7C1C007F20B1 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		54349E1A2E7F7C1C007F20B1 /* GekoShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5436EFAB2E91C32F00A43D70 /* GekoShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; };
 		5436EFAC2E91C32F00A43D70 /* GekoShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		54DC77062F4A7C9D006FFEC6 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 54F65C8B2E7F8653001A17F7 /* ViewInspector */; };
 		54F65C232E7F8653001A17F7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C222E7F8653001A17F7 /* WidgetKit.framework */; };
 		54F65C252E7F8653001A17F7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F65C242E7F8653001A17F7 /* SwiftUI.framework */; };
 		54F65C362E7F8654001A17F7 /* GekoWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 54F65C202E7F8653001A17F7 /* GekoWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -28,20 +28,6 @@
 			remoteInfo = Geko;
 		};
 		54292F702E7E505E00F25100 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54292F502E7E505D00F25100 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 54292F572E7E505D00F25100;
-			remoteInfo = Geko;
-		};
-		54349E102E7F7C1C007F20B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54292F502E7E505D00F25100 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 54349E032E7F7C1C007F20B1;
-			remoteInfo = GekoShared;
-		};
-		54349E122E7F7C1C007F20B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 54292F502E7E505D00F25100 /* Project object */;
 			proxyType = 1;
@@ -137,7 +123,6 @@
 		54292F652E7E505E00F25100 /* GekoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GekoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54292F6F2E7E505E00F25100 /* GekoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GekoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54349E042E7F7C1C007F20B1 /* GekoShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GekoShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54349E0E2E7F7C1C007F20B1 /* GekoSharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GekoSharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		546BE6E42E7FC54A004732F5 /* GekoWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GekoWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F65C202E7F8653001A17F7 /* GekoWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GekoWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F65C222E7F8653001A17F7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -223,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54DC77062F4A7C9D006FFEC6 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,14 +223,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		54349E0B2E7F7C1C007F20B1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				54349E0F2E7F7C1C007F20B1 /* GekoShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +268,6 @@
 				54292F652E7E505E00F25100 /* GekoTests.xctest */,
 				54292F6F2E7E505E00F25100 /* GekoUITests.xctest */,
 				54349E042E7F7C1C007F20B1 /* GekoShared.framework */,
-				54349E0E2E7F7C1C007F20B1 /* GekoSharedTests.xctest */,
 				54F65C202E7F8653001A17F7 /* GekoWidgets.appex */,
 				546BE6E42E7FC54A004732F5 /* GekoWatch.app */,
 			);
@@ -363,6 +340,7 @@
 			);
 			name = GekoTests;
 			packageProductDependencies = (
+				54F65C8B2E7F8653001A17F7 /* ViewInspector */,
 			);
 			productName = GekoTests;
 			productReference = 54292F652E7E505E00F25100 /* GekoTests.xctest */;
@@ -413,27 +391,6 @@
 			productName = GekoShared;
 			productReference = 54349E042E7F7C1C007F20B1 /* GekoShared.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		54349E0D2E7F7C1C007F20B1 /* GekoSharedTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 54349E212E7F7C1C007F20B1 /* Build configuration list for PBXNativeTarget "GekoSharedTests" */;
-			buildPhases = (
-				54349E0A2E7F7C1C007F20B1 /* Sources */,
-				54349E0B2E7F7C1C007F20B1 /* Frameworks */,
-				54349E0C2E7F7C1C007F20B1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				54349E112E7F7C1C007F20B1 /* PBXTargetDependency */,
-				54349E132E7F7C1C007F20B1 /* PBXTargetDependency */,
-			);
-			name = GekoSharedTests;
-			packageProductDependencies = (
-			);
-			productName = GekoSharedTests;
-			productReference = 54349E0E2E7F7C1C007F20B1 /* GekoSharedTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		546BE6E32E7FC54A004732F5 /* GekoWatch */ = {
 			isa = PBXNativeTarget;
@@ -508,10 +465,6 @@
 					54349E032E7F7C1C007F20B1 = {
 						CreatedOnToolsVersion = 26.0;
 					};
-					54349E0D2E7F7C1C007F20B1 = {
-						CreatedOnToolsVersion = 26.0;
-						TestTargetID = 54292F572E7E505D00F25100;
-					};
 					546BE6E32E7FC54A004732F5 = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -529,6 +482,9 @@
 			);
 			mainGroup = 54292F4F2E7E505D00F25100;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				54F65C8A2E7F8653001A17F7 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 54292F592E7E505D00F25100 /* Products */;
 			projectDirPath = "";
@@ -538,7 +494,6 @@
 				54292F642E7E505E00F25100 /* GekoTests */,
 				54292F6E2E7E505E00F25100 /* GekoUITests */,
 				54349E032E7F7C1C007F20B1 /* GekoShared */,
-				54349E0D2E7F7C1C007F20B1 /* GekoSharedTests */,
 				54F65C1F2E7F8653001A17F7 /* GekoWidgets */,
 				546BE6E32E7FC54A004732F5 /* GekoWatch */,
 			);
@@ -568,13 +523,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		54349E022E7F7C1C007F20B1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		54349E0C2E7F7C1C007F20B1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -626,13 +574,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		54349E0A2E7F7C1C007F20B1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		546BE6E02E7FC54A004732F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,16 +600,6 @@
 			isa = PBXTargetDependency;
 			target = 54292F572E7E505D00F25100 /* Geko */;
 			targetProxy = 54292F702E7E505E00F25100 /* PBXContainerItemProxy */;
-		};
-		54349E112E7F7C1C007F20B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 54349E032E7F7C1C007F20B1 /* GekoShared */;
-			targetProxy = 54349E102E7F7C1C007F20B1 /* PBXContainerItemProxy */;
-		};
-		54349E132E7F7C1C007F20B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 54292F572E7E505D00F25100 /* Geko */;
-			targetProxy = 54349E122E7F7C1C007F20B1 /* PBXContainerItemProxy */;
 		};
 		54349E182E7F7C1C007F20B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -841,7 +772,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -878,7 +809,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1060,50 +991,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2,4";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		54349E1E2E7F7C1C007F20B1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8U59Y7S3S4;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.littlepangolin.Geko.GekoSharedTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator";
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,4";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Geko.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Geko";
-			};
-			name = Debug;
-		};
-		54349E1F2E7F7C1C007F20B1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8U59Y7S3S4;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.littlepangolin.Geko.GekoSharedTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator watchos watchsimulator";
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,4";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Geko.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Geko";
 			};
 			name = Release;
 		};
@@ -1299,15 +1186,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54349E212E7F7C1C007F20B1 /* Build configuration list for PBXNativeTarget "GekoSharedTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				54349E1E2E7F7C1C007F20B1 /* Debug */,
-				54349E1F2E7F7C1C007F20B1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		546BE6EF2E7FC54B004732F5 /* Build configuration list for PBXNativeTarget "GekoWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1327,6 +1205,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		54F65C8A2E7F8653001A17F7 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		54F65C8B2E7F8653001A17F7 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54F65C8A2E7F8653001A17F7 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 54292F502E7E505D00F25100 /* Project object */;
 }
