@@ -13,7 +13,9 @@ import GekoShared
 struct ContentView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: \Habit.name, order: .forward) private var habits: [Habit]
+    #if DEBUG
     @ObservedObject private var feedbackManager = FeedbackManager.shared
+    #endif
 
     @State private var showingAdd = false
     @State private var showingDebugSheet = false
@@ -57,10 +59,12 @@ struct ContentView: View {
             DispatchQueue.main.async {
                 viewMode = persistedViewMode
             }
+            #if DEBUG
             // Provide model context for feedback trigger counting
             Task { @MainActor in
                 feedbackManager.setModelContext(context)
             }
+            #endif
         }
         .onChange(of: viewMode) { _, newValue in
             // Persist selection when it changes (write directly to @AppStorage backing value)
@@ -97,14 +101,14 @@ struct ContentView: View {
                     EditHabitView(habit: habit)
                         .presentationDetents([.medium, .large])
                 }
+                #if DEBUG
                 .sheet(isPresented: Binding(
                     get: { feedbackManager.shouldShowFeedbackSheet },
                     set: { if !$0 { feedbackManager.markSheetPresented() } }
                 )) {
                     FeedbackSheetView(onDismiss: { feedbackManager.markSheetPresented() })
-                        .presentationDetents([.medium])
+                        .presentationDetents([.height(220), .medium])
                 }
-                #if DEBUG
                 .confirmationDialog("Debug", isPresented: $showingDebugSheet) {
                     Button("Build \(buildNumber)") { }
                     Button("Show Feedback") {

@@ -146,3 +146,6 @@ AuthKey_*.p8
 *.cer
 *.p12
 *.certSigningRequest
+
+# Notion feedback secrets (copy Secrets.example.plist to Secrets.plist)
+Geko/Secrets.plist

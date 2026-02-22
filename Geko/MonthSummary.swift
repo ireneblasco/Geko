@@ -160,6 +160,13 @@ private struct DayDot: View {
                 isCompleted: habit.isCompleted(on: day, calendar: calendar),
                 completionCount: habit.completionCount(on: day, calendar: calendar)
             )
+            
+            #if DEBUG
+            // Trigger feedback prompt when 3+ habits completed today
+            if !wasDone && habit.isCompleted(on: day, calendar: calendar) && calendar.isDateInToday(day) {
+                FeedbackManager.shared.recordCompletion(habit: habit, date: day)
+            }
+            #endif
         } label: {
             ZStack {
                 // Base circle with opacity-based completion indication

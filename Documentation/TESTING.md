@@ -15,7 +15,13 @@ Overview of the testing setup for the Geko project.
 |------|-------|
 | `GekoTests.swift` | General tests, ViewInspector basics |
 | `HabitTests.swift` | Habit model, creation, persistence |
-| `WeekSummaryTests.swift` | WeekSummary view, day button taps |
+| `HabitsTests.swift` | ContentView, HabitRow (Habits #1) |
+| `HabitEditorTests.swift` | HabitEditorForm, AddHabitView, EditHabitView (#4) |
+| `WeekSummaryTests.swift` | WeekSummary view, day button taps (#2) |
+| `GridViewTests.swift` | ViewModeToggleBar, MonthSummary, YearSummary (#3) |
+| `SyncStatusTests.swift` | SyncStatusView (#12) |
+| `WidgetsTests.swift` | YearHabitGrid shared component (#9) |
+| `FeedbackTests.swift` | FeedbackManager, FeedbackSheetView, NotionFeedbackService |
 
 ## Running Tests
 
@@ -131,6 +137,28 @@ let context = container.mainContext
 ## UI Tests
 
 GekoUITests launch the app and drive it programmatically via XCTest. Use these for end-to-end flows (e.g., adding a habit, completing a day). UI tests run in a separate process from the app.
+
+### Widget E2E Tests
+
+`WidgetE2ETests` in [GekoUITests/WidgetE2ETests.swift](GekoUITests/WidgetE2ETests.swift) includes:
+
+- **testAddHabitFlow** — Smoke test for the add-habit flow (no widget required).
+- **testWidgetShowsHabitAfterCreation** — Full E2E: creates a habit, triggers widget reload, goes to home screen, verifies the widget displays the habit. **Requires a Geko Habit Tracker widget to be added to the home screen before running.**
+
+To run the widget E2E test successfully, add a Geko widget to the simulator home screen first, then run:
+
+```bash
+xcodebuild -scheme Geko -destination 'platform=iOS Simulator,name=iPhone 16 Pro' test -only-testing:GekoUITests/WidgetE2ETests/testWidgetShowsHabitAfterCreation
+```
+
+### Feedback E2E Tests
+
+`FeedbackE2ETests` in [GekoUITests/FeedbackE2ETests.swift](GekoUITests/FeedbackE2ETests.swift) includes:
+
+- **testFeedbackSheetAppearsAfterFourCompletions** — Creates 4 habits, completes each, verifies the feedback sheet appears.
+- **testFeedbackSheet_yesPath_dismisses** — Same flow, taps Yes then Leave Review, verifies sheet dismisses.
+
+These tests use the launch argument `--resetFeedbackState` to clear the "already asked" flag for deterministic runs.
 
 ## Troubleshooting
 

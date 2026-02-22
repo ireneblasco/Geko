@@ -61,6 +61,13 @@ struct HabitRow: View {
                         isCompleted: habit.isCompleted(),
                         completionCount: habit.completionCount()
                     )
+                    
+                    #if DEBUG
+                    // Trigger feedback prompt when 3+ habits completed today
+                    if !wasDone && habit.isCompleted() {
+                        FeedbackManager.shared.recordCompletion(habit: habit, date: Date())
+                    }
+                    #endif
                 } label: {
                     ZStack {
                         // Progress ring background
