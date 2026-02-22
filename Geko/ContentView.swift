@@ -69,6 +69,11 @@ struct ContentView: View {
             Task { @MainActor in
                 feedbackManager.setModelContext(context)
             }
+            // Bootstrap sample habits and hide debug button when launched for screenshot capture
+            if ProcessInfo.processInfo.arguments.contains("--bootstrapSampleHabitsForScreenshots") {
+                bootstrapSampleHabits()
+                hideDebugButton = true
+            }
             #endif
         }
         .onChange(of: viewMode) { _, newValue in
@@ -251,33 +256,63 @@ struct ContentView: View {
     }
 
     #if DEBUG
+    /// Deterministic sample data: ~70% of past days over `weeks`, matching widget provider preview.
+    /// Returns (completedDays for simple habits, dailyCounts for multi-target with counts 4–8).
+    private func sampleHabitData(weeks: Int = 26, calendar: Calendar) -> (Set<String>, [String: Int]) {
+        var completed = Set<String>()
+        var counts = [String: Int]()
+        let today = calendar.startOfDay(for: Date())
+        for weekOffset in 0..<weeks {
+            guard let weekStart = calendar.date(byAdding: .weekOfYear, value: -weekOffset, to: today) else { continue }
+            for dayOffset in 0..<7 {
+                guard let date = calendar.date(byAdding: .day, value: dayOffset, to: weekStart), date <= today else { continue }
+                let linearIndex = weekOffset * 7 + dayOffset
+                if linearIndex % 10 < 7 {
+                    let key = Habit.isoDay(for: date, in: calendar)
+                    completed.insert(key)
+                    counts[key] = 4 + (linearIndex % 5) // 4–8 for multi-target
+                }
+            }
+        }
+        return (completed, counts)
+    }
+
+    /// Same pattern as sampleHabitData but with offset for variety (e.g. Exercise vs Journal).
+    private func sampleCompletedDaysOffset(weeks: Int, offset: Int, calendar: Calendar) -> Set<String> {
+        var set = Set<String>()
+        let today = calendar.startOfDay(for: Date())
+        for weekOffset in 0..<weeks {
+            guard let weekStart = calendar.date(byAdding: .weekOfYear, value: -weekOffset, to: today) else { continue }
+            for dayOffset in 0..<7 {
+                guard let date = calendar.date(byAdding: .day, value: dayOffset, to: weekStart), date <= today else { continue }
+                let linearIndex = weekOffset * 7 + dayOffset + offset
+                if linearIndex % 10 < 7 {
+                    set.insert(Habit.isoDay(for: date, in: calendar))
+                }
+            }
+        }
+        return set
+    }
+
     /// Creates 3 sample habits (Drink Water, Journal, Exercise) with varied completion profiles
-    /// in the last 7 days. For debugging and screenshots.
+    /// over ~26 weeks. Matches widget provider preview density for realistic debugging and screenshots.
     private func bootstrapSampleHabits() {
         let cal = Calendar.current
-        let weekDays = WeekSummary.sevenDaysEndingToday(for: Date(), calendar: cal)
+        let (completedDays, dailyCounts) = sampleHabitData(weeks: 26, calendar: cal)
 
-        // Drink Water — multi-target, high-consistency (6 of 7 days, varying counts)
+        // Drink Water — multi-target, high-consistency (~70% of days with varying counts 4–8)
         let water = Habit(name: "Drink Water", emoji: "💧", color: .blue, dailyTarget: 8, remindersEnabled: false)
-        let waterCounts: [Int] = [6, 8, 5, 7, 4, 8] // indices 0..<6
-        for (idx, count) in waterCounts.enumerated() where idx < weekDays.count {
-            let key = Habit.isoDay(for: weekDays[idx], in: cal)
-            water.dailyCompletionCounts[key] = count
-        }
+        water.dailyCompletionCounts = dailyCounts
         context.insert(water)
 
-        // Journal — simple daily, medium profile (4 of 7 days)
+        // Journal — simple daily, ~70% of days completed
         let journal = Habit(name: "Journal", emoji: "📓", color: .indigo, dailyTarget: 1, remindersEnabled: false)
-        for idx in [0, 2, 4, 5] where idx < weekDays.count {
-            journal.toggleCompleted(on: weekDays[idx], calendar: cal)
-        }
+        journal.completedDays = completedDays
         context.insert(journal)
 
-        // Exercise — simple daily, different pattern (4 of 7 days)
+        // Exercise — simple daily, different pattern (~70% of days, offset for variety)
         let exercise = Habit(name: "Exercise", emoji: "💪", color: .green, dailyTarget: 1, remindersEnabled: false)
-        for idx in [1, 2, 4, 6] where idx < weekDays.count {
-            exercise.toggleCompleted(on: weekDays[idx], calendar: cal)
-        }
+        exercise.completedDays = sampleCompletedDaysOffset(weeks: 26, offset: 3, calendar: cal)
         context.insert(exercise)
 
         do {

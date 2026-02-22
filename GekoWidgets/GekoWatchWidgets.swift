@@ -181,9 +181,26 @@ struct GekoWatchWidgets_Previews: PreviewProvider {
     
     private static var sampleHabit: Habit {
         let h = Habit(name: "Drink Water", emoji: "💧", color: .blue, dailyTarget: 8)
-        // Simulate some progress
-        for _ in 0..<3 { h.incrementCompletion() }
+        h.dailyCompletionCounts = sampleDailyCounts(weeks: 26)
         return h
+    }
+
+    /// ~70% of past days with counts 4–8, matching widget provider preview.
+    private static func sampleDailyCounts(weeks: Int = 26) -> [String: Int] {
+        var counts = [String: Int]()
+        let cal = Calendar.current
+        let today = cal.startOfDay(for: Date())
+        for weekOffset in 0..<weeks {
+            guard let weekStart = cal.date(byAdding: .weekOfYear, value: -weekOffset, to: today) else { continue }
+            for dayOffset in 0..<7 {
+                guard let date = cal.date(byAdding: .day, value: dayOffset, to: weekStart), date <= today else { continue }
+                let linearIndex = weekOffset * 7 + dayOffset
+                if linearIndex % 10 < 7 {
+                    counts[Habit.isoDay(for: date, in: cal)] = 4 + (linearIndex % 5)
+                }
+            }
+        }
+        return counts
     }
 }
 #endif
