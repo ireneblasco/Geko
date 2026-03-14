@@ -1,0 +1,552 @@
+{
+  "fill" : "automatic",
+  "groups" : [
+    {
+      "blend-mode" : "normal",
+      "blur-material" : null,
+      "layers" : [
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.60000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-61",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -319.5255880031719,
+              320.0110006926614
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.65000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-52",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -192.71421446590088,
+              192.85361038398204
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.65000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-62",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -193.55167208961538,
+              318.7528022451007
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-43",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -64.2614937418894,
+              65.25035222060588
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.30000"
+          },
+          "glass" : false,
+          "hidden" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-53",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -64.22799543694082,
+              193.1510678024022
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-63",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -65.06545306065532,
+              319.0502596635208
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.80000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-34",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              65.99606191671293,
+              -63.99604162556661
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.80000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-44",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              65.16697886923558,
+              64.36108836115406
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.95000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-54",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              65.20047717418416,
+              192.26180394295037
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.80000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-64",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              64.36301955046966,
+              318.16099580406905
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-25",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              191.5541270653497,
+              -192.5072634221973
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-35",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              192.7642533316171,
+              -63.40898343848924
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.80000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-45",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              191.93517028413976,
+              64.94814654823145
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.90000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-55",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              191.96866858908834,
+              192.84886213002773
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.90000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-65",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              191.13121096537384,
+              318.74805399114643
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-16",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              319.4326235331182,
+              -318.20559940131625
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.85000"
+          },
+          "glass" : false,
+          "hidden" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-26",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              316.6978734539357,
+              -191.25114258040654
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-36",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              317.9079997202031,
+              -62.152862596698505
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-46",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              317.07891667272577,
+              66.20426739002218
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,0.80000"
+          },
+          "glass" : false,
+          "hidden" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-56",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              317.11241497767435,
+              194.1049829718185
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.45146,0.96783,0.77881,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-66",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              316.27495735395985,
+              320.00417483293717
+            ]
+          }
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "Stair",
+      "position" : {
+        "scale" : 1.4,
+        "translation-in-points" : [
+          0,
+          0
+        ]
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "layers" : [
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-14",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              66.35616869491017,
+              -320.11989397428925
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-24",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              64.78593565044551,
+              -193.09432160927466
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-15",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              193.12436010981435,
+              -319.53283578721187
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-11",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -319.0703125,
+              -319.4921875
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-21",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -320.64054554446466,
+              -192.46661513498537
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-31",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -319.43041927819723,
+              -63.368335151277336
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-41",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -320.2595023256746,
+              64.98879483544334
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-51",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -320.226004020726,
+              192.88951041723965
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-12",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -191.55852294517487,
+              -319.5280875332576
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-22",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -193.12875598963953,
+              -192.50251516824298
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-32",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -191.9186297233721,
+              -63.40423518453494
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-44",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -192.74771277084946,
+              64.95289480218574
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-13",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -63.0723039162148,
+              -319.2306301148375
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-23",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -64.64253696067946,
+              -192.20505774982283
+            ]
+          }
+        },
+        {
+          "glass" : false,
+          "image-name" : "SquircleWhite.svg",
+          "name" : "SquircleWhite-33",
+          "position" : {
+            "scale" : 0.14,
+            "translation-in-points" : [
+              -63.432410694412035,
+              -63.1067777661148
+            ]
+          }
+        }
+      ],
+      "name" : "Group",
+      "position" : {
+        "scale" : 1.4,
+        "translation-in-points" : [
+          0,
+          0
+        ]
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

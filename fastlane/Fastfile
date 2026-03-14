@@ -1,0 +1,26 @@
+# Fastfile for Geko - iOS/watchOS habit tracking app
+# Usage: bundle exec fastlane beta
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Build and upload to TestFlight"
+  lane :beta do
+    build_app(
+      project: "Geko.xcodeproj",
+      scheme: "Geko",
+      export_method: "app-store",
+      output_directory: "./build",
+      clean: true
+    )
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      api_key: app_store_connect_api_key(
+        key_id: "KT4CGFWKWJ",
+        issuer_id: "57206120-1374-4223-9cca-96a6a61466de",
+        key_filepath: "./fastlane/AuthKey_KT4CGFWKWJ.p8"
+      )
+    )
+  end
+end
