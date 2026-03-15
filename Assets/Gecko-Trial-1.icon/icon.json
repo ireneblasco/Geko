@@ -1,0 +1,62 @@
+{
+  "fill" : "system-light",
+  "groups" : [
+    {
+      "blend-mode-specializations" : [
+        {
+          "value" : "normal"
+        },
+        {
+          "appearance" : "dark",
+          "value" : "normal"
+        }
+      ],
+      "blur-material" : 1,
+      "layers" : [
+        {
+          "glass" : false,
+          "image-name" : "SquircleGridStairs-180deg 2.svg",
+          "name" : "SquircleGridStairs-180deg 2",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              55.88615981457701,
+              -118.9068123306866
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.86240,0.55666,0.35191,1.00000"
+          },
+          "glass" : false,
+          "image-name" : "SquircleGridStairs 2.svg",
+          "name" : "SquircleGridStairs 2"
+        }
+      ],
+      "lighting" : "combined",
+      "position" : {
+        "scale" : 2,
+        "translation-in-points" : [
+          -56.2872758663701,
+          54.34552516722348
+        ]
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 1
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

@@ -1,5 +1,7 @@
 {
-  "fill" : "automatic",
+  "fill" : {
+    "solid" : "display-p3:0.99377,0.98718,1.00000,1.00000"
+  },
   "groups" : [
     {
       "blend-mode" : "normal",
