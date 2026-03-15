@@ -125,6 +125,20 @@
 		54292F6F2E7E505E00F25100 /* GekoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GekoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54349E042E7F7C1C007F20B1 /* GekoShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GekoShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		546BE6E42E7FC54A004732F5 /* GekoWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GekoWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		547F76AE2F6630F800AE6293 /* AppIcon-iOS-Default-1024x1024@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iOS-Default-1024x1024@1x.png"; sourceTree = "<group>"; };
+		547F76AF2F6630F800AE6293 /* CircleWhite.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = CircleWhite.svg; sourceTree = "<group>"; };
+		547F76B02F6630F800AE6293 /* Gecko-Trial-1.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "Gecko-Trial-1.icon"; sourceTree = "<group>"; };
+		547F76B12F6630F800AE6293 /* SquircleGrid.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SquircleGrid.svg; sourceTree = "<group>"; };
+		547F76B22F6630F800AE6293 /* SquircleGridCheck.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SquircleGridCheck.svg; sourceTree = "<group>"; };
+		547F76B32F6630F800AE6293 /* SquircleGridStairs.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SquircleGridStairs.svg; sourceTree = "<group>"; };
+		547F76B42F6630F800AE6293 /* SquircleGridStairs-180deg.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "SquircleGridStairs-180deg.svg"; sourceTree = "<group>"; };
+		547F76B52F6630F800AE6293 /* SquircleWhite.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SquircleWhite.svg; sourceTree = "<group>"; };
+		547F76B72F66332600AE6293 /* AppIcon-iOS-ClearDark-1024x1024@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iOS-ClearDark-1024x1024@1x.png"; sourceTree = "<group>"; };
+		547F76B82F66332600AE6293 /* AppIcon-iOS-ClearLight-1024x1024@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iOS-ClearLight-1024x1024@1x.png"; sourceTree = "<group>"; };
+		547F76B92F66332600AE6293 /* AppIcon-iOS-Dark-1024x1024@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iOS-Dark-1024x1024@1x.png"; sourceTree = "<group>"; };
+		547F76BA2F66332600AE6293 /* AppIcon-iOS-Default-1024x1024@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iOS-Default-1024x1024@1x.png"; sourceTree = "<group>"; };
+		547F76BB2F66332600AE6293 /* AppIcon-iOS-TintedDark-1024x1024@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iOS-TintedDark-1024x1024@1x.png"; sourceTree = "<group>"; };
+		547F76BC2F66332600AE6293 /* AppIcon-iOS-TintedLight-1024x1024@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-iOS-TintedLight-1024x1024@1x.png"; sourceTree = "<group>"; };
 		54F65C202E7F8653001A17F7 /* GekoWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GekoWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F65C222E7F8653001A17F7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		54F65C242E7F8653001A17F7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -252,6 +266,7 @@
 		54292F4F2E7E505D00F25100 = {
 			isa = PBXGroup;
 			children = (
+				547F76B62F6630F800AE6293 /* Assets */,
 				54292F5A2E7E505D00F25100 /* Geko */,
 				54292F682E7E505E00F25100 /* GekoTests */,
 				54292F722E7E505E00F25100 /* GekoUITests */,
@@ -274,6 +289,35 @@
 				546BE6E42E7FC54A004732F5 /* GekoWatch.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		547F76B62F6630F800AE6293 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				547F76BD2F66332600AE6293 /* AppIcon Exports */,
+				547F76AE2F6630F800AE6293 /* AppIcon-iOS-Default-1024x1024@1x.png */,
+				547F76AF2F6630F800AE6293 /* CircleWhite.svg */,
+				547F76B02F6630F800AE6293 /* Gecko-Trial-1.icon */,
+				547F76B12F6630F800AE6293 /* SquircleGrid.svg */,
+				547F76B22F6630F800AE6293 /* SquircleGridCheck.svg */,
+				547F76B32F6630F800AE6293 /* SquircleGridStairs.svg */,
+				547F76B42F6630F800AE6293 /* SquircleGridStairs-180deg.svg */,
+				547F76B52F6630F800AE6293 /* SquircleWhite.svg */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		547F76BD2F66332600AE6293 /* AppIcon Exports */ = {
+			isa = PBXGroup;
+			children = (
+				547F76B72F66332600AE6293 /* AppIcon-iOS-ClearDark-1024x1024@1x.png */,
+				547F76B82F66332600AE6293 /* AppIcon-iOS-ClearLight-1024x1024@1x.png */,
+				547F76B92F66332600AE6293 /* AppIcon-iOS-Dark-1024x1024@1x.png */,
+				547F76BA2F66332600AE6293 /* AppIcon-iOS-Default-1024x1024@1x.png */,
+				547F76BB2F66332600AE6293 /* AppIcon-iOS-TintedDark-1024x1024@1x.png */,
+				547F76BC2F66332600AE6293 /* AppIcon-iOS-TintedLight-1024x1024@1x.png */,
+			);
+			path = "AppIcon Exports";
 			sourceTree = "<group>";
 		};
 		54F65C212E7F8653001A17F7 /* Frameworks */ = {
