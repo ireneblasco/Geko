@@ -122,7 +122,9 @@ struct ContentView: View {
                 .onOpenURL { url in
                     if url.scheme == "geko" && url.host == "paywall" {
                         showingPaywall = true
+                        return
                     }
+                    _ = URLSchemeHandler.handle(url)
                 }
                 .sheet(item: $habitToEdit) { habit in
                     EditHabitView(habit: habit)
